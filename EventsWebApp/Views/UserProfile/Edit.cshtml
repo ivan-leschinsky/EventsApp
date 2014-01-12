@@ -1,0 +1,151 @@
+@model EventsWebApp.Models.UserProfile
+
+@{
+    ViewBag.Title = "Редактирование профиля";
+}
+<legend align="center">@ViewBag.Title</legend>
+<div class="col-md-8">
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Изменение личных данных</a>
+            </h3>
+        </div>
+    
+    @using (Html.BeginForm("Edit", "UserProfile", FormMethod.Post, new { @class = "form-horizontal", @id = "UserInfo", ReturnUrl = ViewBag.ReturnUrl }))
+    {
+                <div class="panel-body">
+        @Html.ValidationSummary(true)
+    
+        @Html.HiddenFor(model => model.UserId)
+        @Html.HiddenFor(model => model.UserName)
+    
+        <div class="form-group">
+            <label class="col-md-4 control-label">Логин</label>
+            <div class="col-md-8">
+                <p class="form-control-static">@Model.UserName</p>
+            </div>
+        </div>             
+        
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="UserTrueName">Имя пользователя</label>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.UserTrueName, new { @class = "form-control input-md" })
+            </div>
+        </div>
+    
+   
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="UserInfo">Коротко о вас:</label>
+            <div class="col-md-8">
+                @Html.TextAreaFor(m => m.UserInfo, new { @class = "form-control input-md", @rows = 3 })
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="col-md-4 control-label">Выберите ваши интересы:</label>
+
+            <label class="col-md-8">
+                @foreach (EventsWebApp.Models.Subject item in ViewBag.Subjects)
+                {
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="@item.SubjectId" name="SubjectsIds" value="@item.SubjectName"
+                    @foreach (var c in ViewBag.SubjectsChecked)
+                    {
+                        if (c == item.SubjectName)
+                        {
+                        <text> checked="checked"</text>
+                        }
+                    }
+                    />
+                        @item.SubjectName
+                    </label>
+                }
+            </label>
+        </div>
+                    </div>
+                    <div class="panel-footer">
+        <button type="submit" class="btn btn-primary btn-md btn-block" value="Сохранить"><i class="glyphicon glyphicon-briefcase"></i>Сохранить</button>
+                        </div>
+                    
+    }
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Изменение пароля</a>
+            </h3>
+        </div>
+        @using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-5 control-label" for="OldPassword">@Resource.Resource.currentPassword</label>
+                    <div class="col-md-6">
+                        <input class="form-control input-md" id="OldPassword" name="OldPassword" required="" type="password">
+                    </div>
+                </div>
+
+                <!-- Password input-->
+                <div class="form-group">
+                    <label class="col-md-5 control-label" for="NewPassword">@Resource.Resource.newPassword</label>
+                    <div class="col-md-6">
+                        <input class="form-control input-md" id="NewPassword" name="NewPassword" required="" type="password">
+                    </div>
+                </div>
+
+                <!-- Password input-->
+                <div class="form-group">
+                    <label class="col-md-5 control-label" for="ConfirmPassword">@Resource.Resource.confirnNewPassword</label>
+                    <div class="col-md-6">
+                        <input class="form-control input-md" id="ConfirmPassword" name="ConfirmPassword" required="" type="password">
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                    <input type="submit" value=@Resource.Resource.changePassword class="btn btn-primary btn-block" />
+            </div>
+        }
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Изменение аватара</a>
+            </h3>
+        </div>
+        @using (Html.BeginForm("UploadPicture", "UserProfile", FormMethod.Post, new { @id = "uploadPicture", @enctype = "multipart/form-data" }))
+        {
+            <div class="panel-body">
+                <input type="file" id="file" name="file" />
+                <p id="errorPlace"></p>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary btn-md btn-block"><i class="glyphicon glyphicon glyphicon-open"></i>Загрузить аватар</button>
+            </div>
+        }
+    </div>
+    
+</div>
+@section scripts {
+    <script>
+        $(function () {
+            $('form').last().submit(function () {
+                var selectedFile = $('#file').val();
+                var matches = selectedFile.match(/\.(jpg?)$|.(png?)$|.(gif?)$/i);
+                if (matches == null || selectedFile == null) {
+                    document.getElementById('errorPlace').innerHTML = '<div class="alert alert-danger">Please, Select an Image file!</div>';
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
+
+}

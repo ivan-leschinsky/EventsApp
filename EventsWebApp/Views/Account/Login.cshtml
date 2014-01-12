@@ -1,0 +1,138 @@
+﻿@model EventsWebApp.Models.LoginPageModel
+@{
+    ViewBag.Title = "Войдите";
+    Layout = "../Shared/_LayoutEmpty.cshtml";
+}
+
+<div class="col-lg-offset-4 col-md-offset-3 col-xs-offset-0 col-lg-4 col-md-6 col-xs-12">
+    
+
+<!-- Tab panes -->
+
+    <div class="panel panel-default login-style">
+
+        <ul class="nav nav-tabs" id="logintabs">
+            <li><a href="#logintab" data-toggle="tab"><span class="glyphicon glyphicon-home"></span> Войти</a></li>
+            
+            <li><a href="#registertab" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Зарегистироваться</a></li> 
+        </ul>
+        
+
+<div class="tab-content">
+  <div class="tab-pane fade in active" id="logintab">
+      
+
+       @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form", ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+     @Html.ValidationSummary(true, "Ошибка!", new { @class="alert alert-danger"})
+               <div class="panel-body">
+
+                        <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            @Html.TextBoxFor(m => m.loginModel.UserName, new { @class = "form-control input-lg", @placeholder = "Логин", @required = ""})
+                        </div>
+                        @Html.ValidationMessageFor(m => m.loginModel.UserName)
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                               @Html.PasswordFor(m => m.loginModel.Password, new { @class = "form-control input-lg", @placeholder = "Пароль", @required = ""})
+                           
+                            </div>
+                             @Html.ValidationMessageFor(m => m.loginModel.Password)
+                        </div>
+                        
+                            <div class="input-group">
+                               <label class="input-lg">
+                                    @Html.CheckBoxFor(m => m.loginModel.RememberMe)
+                                    Запомнить меня
+                                </label> 
+                            </div>
+                       
+                </div>
+                <div class="panel-footer">
+                    <!--<input type="submit" class="btn btn-success btn-lg btn-block" value="Вход">-->
+                    <button type="submit" class="btn btn-success btn-lg btn-block" value="Вход"><i class="glyphicon glyphicon-ok-sign"></i> Вход</button>
+                       
+                </div>
+}
+        </div>
+
+
+    <div class="tab-pane fade" id="registertab">
+      
+
+                
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form", ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+                       
+    <div class="panel-body">
+    
+                        <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            @Html.TextBoxFor(m => m.registerModel.UserName, new { @class = "form-control input-lg", @placeholder = "Логин", @required = ""})
+                        </div>
+                        @Html.ValidationMessageFor(m => m.registerModel.UserName)
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                               @Html.PasswordFor(m => m.registerModel.Password, new { @class = "form-control input-lg", @placeholder = "Пароль", @required = ""})
+                           
+                            </div>
+                             @Html.ValidationMessageFor(m => m.registerModel.Password)
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                               @Html.PasswordFor(m => m.registerModel.ConfirmPassword, new { @class = "form-control input-lg", @placeholder = "Повторите пароль", @required = ""})
+                           
+                            </div>
+                             @Html.ValidationMessageFor(m => m.registerModel.ConfirmPassword)
+                        </div>
+     </div> 
+                        
+    <div class="panel-footer">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" value="Регистрация"><i class="glyphicon glyphicon-briefcase"></i> Регистрация</button>
+    </div>
+
+}
+                    
+  </div>
+  
+        </div>
+
+
+
+
+ 
+
+
+<!--
+<section class="social" id="socialLoginForm">
+    <h2>Use another service to log in.</h2>
+    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+</section>
+-->
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script>
+            $('[rel=tooltip]').tooltip()
+
+            $('#logintabs a:first').tab('show')//to select first tab
+        </script>
+
+
+}

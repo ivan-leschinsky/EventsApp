@@ -1,0 +1,13 @@
+﻿@model EventsWebApp.Models.LocalPasswordModel
+@{
+    ViewBag.Title = @Resource.Resource.changingPassword;
+    ViewBag.ManageAccount = true;
+}
+
+<legend align="center">@ViewBag.Title</legend>
+
+@Html.Partial("_ChangePasswordPartial")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

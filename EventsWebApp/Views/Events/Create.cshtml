@@ -1,0 +1,108 @@
+@model EventsWebApp.Models.Event_
+
+@{
+    ViewBag.Title = @Resource.Resource.creatingEvent;
+}
+
+@using (Html.BeginForm("Create", "Events", FormMethod.Post, new { @class = "form-horizontal", @onsubmit = "CheckAndAdd()" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend align="center">@Resource.Resource.newEvent</legend>
+
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Name">@Resource.Resource.eventName</label>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.EventName, new { @class = "form-control input-md", @required = "" })
+                @Html.ValidationMessageFor(model => model.EventName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="EventDescription">@Resource.Resource.eventDescription</label>
+            <div class="col-md-6">
+                @Html.TextAreaFor(m => m.EventDescription, new { @class = "form-control input-md", @rows = 3, @required = "" })
+                @Html.ValidationMessageFor(model => model.EventDescription)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="EventTime">@Resource.Resource.eventDateTime</label>
+            <div class="col-md-6">
+
+
+                <div class='input-group date' id='picker'>
+                    <input class="form-control input-md" data-format="DD/MM/YYYY hh:mm" data-val="true" data-val-date="@Resource.Resource.fieldShouldBedate" data-val-required="@Resource.Resource.requireToFullfillFieldTimeEvent" id="EventTime" name="EventTime" type="datetime" required />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+
+
+                <!--@Html.TextBoxFor(m => m.EventTime, new { @class = "form-control input-md", @id = "dtpicker", @required = "" })-->
+                @Html.ValidationMessageFor(model => model.EventTime)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="EventTime">@Resource.Resource.chooseTags :</label>
+            <input id="Subjects" name="Subjects" type="hidden" />
+
+            <div class="col-md-6">
+                <p style="color: red;">@Html.ValidationMessageFor(model => model.Subjects)</p>
+                @foreach (EventsWebApp.Models.Subject item in new EventsWebApp.Models.EventsAppDb().Subjects.ToList())
+                {
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="Subject-@item.SubjectId" name="SubjectsIds" value="@item.SubjectName"/>
+                        @item.SubjectName
+                    </label>
+                }
+            </div>
+        </div>
+
+
+
+        <!-- Button -->
+        <div class="form-group">
+
+            <div class="col-md-4 col-md-offset-4">
+                <input type="submit" value="@Resource.Resource.createEvent" class="btn btn-success" />
+            </div>
+        </div>
+    </fieldset>
+}
+
+@section scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="/Scripts/moment-with-langs.min.js"></script>
+    <script src="/Scripts/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript">
+        function CheckAndAdd() {
+             @foreach (EventsWebApp.Models.Subject item in new EventsWebApp.Models.EventsAppDb().Subjects.ToList())
+             {
+           <text>
+           if (document.getElementById('Subject-@item.SubjectId').checked == true)
+               document.getElementById('Subjects').value = "Ok";
+           </text>
+             }
+       }
+        $(function () {
+
+            $('#picker').datetimepicker({
+                language: 'ru',
+                startDate: '@DateTime.Now.Month/@DateTime.Now.Day/@DateTime.Now.Year',
+
+           });
+       });
+    </script>
+}
+
+@section styles {
+
+    <link href="/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+}
+
+

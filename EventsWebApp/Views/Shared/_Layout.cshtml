@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - События и люди</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <header class="navbar navbar-default navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">События</a>
+            </div>
+
+            <nav class="collapse navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Ближайшие", "Index", "Events")</li>
+                    <li>@Html.ActionLink("Архив", "Archived", "Events")</li>
+                    <li>@Html.ActionLink("Создать событие", "Create", "Events")</li>
+                </ul>
+                <ul class="nav navbar-right navbar-nav">
+
+                    <li>
+                        <form method="get" action="@Url.Action("Search", "Events")" class="form-inline">
+                                <input type="text" class="form-control pull-left" name="searchText" id="searchText" placeholder="Поиск" required="">
+                                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                        </form>
+                    </li>
+                    <li>
+                        <form class="form-inline">
+                            <a href="@Url.Action("ChangeCulture", "Events", new { lang = "ru" })" class="btn btn-default">Ru</a>
+                            <a href="@Url.Action("ChangeCulture", "Events", new { lang = "en" })" class="btn btn-default">En</a>
+                        </form>
+                    </li>
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            @{
+                                EventsWebApp.Models.UserProfile user = new EventsWebApp.Models.EventsAppDb().UserProfiles.FirstOrDefault(u => u.UserName == User.Identity.Name);
+                                if (!string.IsNullOrEmpty(user.UserAvatarUrl))
+                                {
+                                <img alt="Photo" height="24" width="24" src="@user.UserAvatarUrl" style="border-radius: 5px;">
+                                }
+                            }
+                            @user.UserTrueName<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Show", "UserProfile", new { id = user.UserId })">Просмотреть профиль</a></li>
+                            <li><a href="@Url.Action("Edit", "UserProfile")">Изменить профиль</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("LogOff", "Account")">Выход</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+
+
+            </nav>
+        </div>
+    </header>
+
+    @RenderSection("featured", required: false)
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="panel">
+                    <div class="panel-body">
+                        @RenderBody()
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!--/col-12-->
+        </div>
+    </div>
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

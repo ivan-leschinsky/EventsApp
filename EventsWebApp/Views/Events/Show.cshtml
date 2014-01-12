@@ -1,0 +1,210 @@
+@model EventsWebApp.Models.Event_
+
+@{
+    ViewBag.Title = Resource.Resource.eventShow;
+}
+
+
+<legend align="center">@ViewBag.Title</legend>
+
+
+<div class="row">
+    <br>
+    <div class="col-md-12 col-sm-12">
+        <div class="row">
+            <div class="col-xs-9">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading clearfix">
+                        <h4 class="panel-title pull-left" style="padding-top: 7.5px;">
+                            <span class="glyphicon glyphicon-pushpin"></span>@Html.DisplayFor(model => model.EventName)
+                        </h4>
+                        <div class="btn-group pull-right">
+                            <a href="#" class="btn btn-default btn-sm">@Resource.Resource.time : @String.Format("{0:g}", Model.EventTime)</a>
+                        </div>
+
+                    </div>
+                    <div class="panel-body">
+                        @Html.DisplayFor(model => model.EventDescription)
+
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <div class="btn-group pull-left">
+                            <button class="btn btn-default btn-md">@Resource.Resource.numberParticipant : @Model.UserProfiles.Count</button>
+                            @{
+                                var username = new EventsWebApp.Models.EventsAppDb().UserProfiles.Find(Model.UserID).UserTrueName;
+                            }
+                            <a href="@Url.Action("Show", "UserProfile", new { id = Model.UserID })"  class="btn btn-default btn-md">@Resource.Resource.creator: @username</a>
+                        </div>
+                        <div class="btn-group pull-right">
+                            @if (Model.EventTime > DateTime.Now)
+                            {
+                                if (Model.UserID == ViewBag.CurrentUserId)
+                                {
+                                <a href="@Url.Action("Remove", new { id = Model.Event_Id })" onclick="return confirm('@Resource.Resource.areYouSure')" class="btn btn-danger btn-md"><span class="glyphicon glyphicon-trash"></span>@Resource.Resource.delete</a>
+                                }
+                                if (ViewBag.Interests)
+                                {
+                                    if (Model.UserProfiles.Contains(ViewBag.CurrentUser))
+                                    {
+                                <a href="@Url.Action("Subscribe", new { id = Model.Event_Id, ReturnPage = "Show" })" class="btn btn-warning btn-md">
+                                    <span class="glyphicon glyphicon-thumbs-down"></span>@Resource.Resource.unSubscribe</a>
+                                    }
+                                    else
+                                    {
+                                <a href="@Url.Action("Subscribe", new { id = Model.Event_Id, ReturnPage = "Show" })" class="btn btn-success btn-md">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>@Resource.Resource.subscribe</a>
+                                    }
+                                }
+
+                            }
+                        </div>
+                    </div>
+                </div>
+                @if (Model.Subjects != null)
+                {
+                    <h4>Темы: 
+                            @if (Model.Subjects.Split(',')[0] != "None")
+                            {
+                                foreach (string s in Model.Subjects.Split(','))
+                                {
+                                <span class="label label-info">@s</span>
+                                }
+                            }
+                    </h4>
+                }
+
+
+            </div>
+            <div class="col-xs-3">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseUsers"><span class="glyphicon glyphicon-user text-success"></span>@Resource.Resource.eventParticipants</a>
+                            </h4>
+                        </div>
+                        <div id="collapseUsers" class="panel-collapse collapse in">
+                            <div class="panel-body panel-body-users" align="center">
+                                <ul class="list-group">
+                                    <h3>
+                                    @foreach (var subscriber in Model.UserProfiles)
+                                    { 
+                                        <li class="list-group-item">
+                                            
+                                           <span class="label label-success">
+                                            <a href="@Url.Action("Show", "UserProfile", new { id = subscriber.UserId })">@subscriber.UserTrueName
+                                            </a>
+                                        </span>
+                                                
+                                        </li>
+                                        
+                                    }
+                                    </h3>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (Model.UserProfiles.Contains(ViewBag.CurrentUser))
+                {
+                    <div class="panel-group" id="accordionPlayerAdd">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordionPlayerAdd" href="#collapsePlayerAdd"><span class="glyphicon glyphicon-music text-primary"></span>@Resource.Resource.changePlaylist</a>
+                                </h4>
+                            </div>
+                            <div id="collapsePlayerAdd" class="panel-collapse collapse">
+                                <div class="panel-body" align="center">
+
+
+                                    <div class="panel-group" id="accordion1">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">@Resource.Resource.addTrack</a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+
+
+                                                    @using (Html.BeginForm("AddTrack", "Events", FormMethod.Post, new { @class = "form-horizontal", ReturnUrl = ViewBag.ReturnUrl }))
+                                                    {
+                                                        <input name="Event_Id" type="hidden" id="Event_Id" value="@Model.Event_Id" class="btn btn-info">
+                                                        <input name="SongName" type="text" id="SongName" value="" placeholder="@Resource.Resource.trackName" class="form-control input-md" required="">
+                                                        <input name="SongUrl" type="text" id="SongUrl" value="" placeholder="@Resource.Resource.trackUrl" class="form-control input-md" required="">
+                                                        <input type="submit" value="@Resource.Resource.add" class="btn btn-info btn-block">
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-danger">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">@Resource.Resource.trackDelete</a>
+                                                </h3>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse">
+                                                <div class="panel-body" style="max-height: 200px; overflow-y: scroll;">
+
+                                                    <ul class="list-group">
+                                                        @foreach (EventsWebApp.Models.Song song in ViewBag.Songs)
+                                                        {
+                                                            <li class="list-group-item"><a href="@Url.Action("RemoveTrack", new { id = song.SongId })" data-toggle="tooltip" data-original-title="Удаление трека @song.SongName">@song.SongName</a></li>
+                                                        }
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="panel-group" id="accordionPlayer">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordionPlayer" href="#collapsePlayer"><span class="glyphicon glyphicon-music text-primary"></span>@Resource.Resource.player</a>
+                                </h4>
+                            </div>
+                            <div id="collapsePlayer" class="panel-collapse collapse in">
+                                <div class="panel-body" align="center">
+                                    <script type='text/javascript' src='/Scripts/swfobject.js'></script>
+                                    <object id="audioplayer408" type="application/x-shockwave-flash" data="/Content/uppod.swf" width="225" height="240">
+                                        <param name="allowScriptAccess" value="always" />
+                                        <param name="wmode" value="transparent" />
+                                        <param name="movie" value="/Content/uppod.swf" />
+                                        <param name="flashvars" value='st=/Content/style.txt&pl={"playlist":[@ViewBag.Playlist]}' />
+                                    </object>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        if ($('.show_event').length > 0) {
+            $('[data-toggle="tooltip"]').tooltip();
+        }
+    </script>
+}
+
+
+

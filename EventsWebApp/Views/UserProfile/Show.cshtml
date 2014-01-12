@@ -1,0 +1,80 @@
+@model EventsWebApp.Models.UserProfile
+
+@{
+    ViewBag.Title = "Просмотр профиля";
+}
+
+<form class="form-horizontal">
+    <legend align="center">@Model.UserTrueName - @ViewBag.Title</legend>
+
+
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="UserAvatarUrl">Аватар</label>
+        <div class="col-md-8">
+
+            @if (!string.IsNullOrEmpty(Model.UserAvatarUrl))
+            {
+                <img alt="Photo" height="200" width="200" src="@Model.UserAvatarUrl" style="border-radius: 15px;">
+            }
+            else
+            {
+                <img alt="Photo" height="200" width="200" src="/Content/User_Images/default-user.png" style="border-radius: 15px;">
+            }
+            
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="UserInfo">О пользователе:</label>
+        <div class="col-md-8">
+            <p class="form-control-static">@Model.UserInfo</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">Интересы пользователя:</label>
+
+        <label class="col-md-8">
+            @if (ViewBag.Subjects[0] != "None")
+            {
+                <h4>
+                    @foreach (string s in ViewBag.Subjects)
+                    {
+                        <span class="label label-info">@s</span>
+                    }
+                </h4>
+            }
+        </label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label">История участия в событиях:</label>
+
+        <label class="col-md-8">
+            <h4>
+            @if (ViewBag.Subjects[0] != "None")
+            {
+                   foreach (var event_ in Model.Events.OrderByDescending(e => e.EventTime))
+                    {
+                        if(event_.EventTime >= DateTime.Now)
+                        {
+                            <span class="label label-success"><a href="@Url.Action("Show", "Events", new {id = event_.Event_Id})">@event_.EventName</a></span>
+                        }
+                    else
+                        {
+                            <span class="label label-default"><a href="@Url.Action("Show", "Events", new {id = event_.Event_Id})">@event_.EventName</a></span>
+                        }
+            
+                    }
+                
+            }
+            </h4>
+        </label>
+    </div>
+    @if (ViewBag.CurrentUser)
+    {
+    <div class="form-group">
+        <div class="col-md-8 col-md-offset-4">
+            <a class="btn btn-block btn-md btn-primary" href="@Url.Action("Edit")">Редактировать профиль</a>
+        </div>
+    </div>
+    }
+</form>

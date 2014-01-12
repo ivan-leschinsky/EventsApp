@@ -1,0 +1,68 @@
+@model EventsWebApp.Models.UserProfile
+
+@{
+    ViewBag.Title = "Начальная настройка";
+    Layout = "../Shared/_LayoutEmpty.cshtml";
+}
+
+<div class="col-lg-offset-2 col-md-offset-1 col-xs-offset-0 col-lg-8 col-md-10 col-xs-12">
+
+
+    <!-- Tab panes -->
+
+    <div class="panel panel-default login-style">
+        <div class="panel-heading">
+            <h4 align="center">Первоначальная настройка</h4>
+        </div>
+
+        @using (Html.BeginForm("FirstSetup", "UserProfile", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.UserId)
+            @Html.HiddenFor(model => model.UserName)
+            
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Логин</label>
+                    <div class="col-md-8">
+                        <p class="form-control-static">@Model.UserName</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="UserInfo">Ваше имя:</label>
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(m => m.UserTrueName, new { @class = "form-control input-md" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="UserInfo">Коротко о себе:</label>
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(m => m.UserInfo, new { @class = "form-control input-md" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Выберите ваши интересы:</label>
+
+                    <label class="col-md-8">
+                        @foreach (EventsWebApp.Models.Subject item in ViewBag.Subjects)
+                        {
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="@item.SubjectId" name="SubjectsIds" value="@item.SubjectName"/>
+                                @item.SubjectName
+                            </label>
+                        }
+                    </label>
+                </div>
+            </div>
+                        
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" value="Сохранить"><i class="glyphicon glyphicon-briefcase"></i>Сохранить</button>
+            </div>
+
+        }
+
+    </div>
+
+</div>

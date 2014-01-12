@@ -1,0 +1,130 @@
+@model IEnumerable<EventsWebApp.Models.Event_>
+
+@{    
+    ViewBag.Title = Resource.Resource.nearestEvents;
+}
+
+<legend align="center">@ViewBag.Title</legend>
+
+
+<div class="row">
+    <br>
+
+    <div class="col-md-12 col-sm-12">
+        <div class="row">
+            <div class="col-xs-9">
+
+                @foreach (var item in Model)
+                {
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading clearfix">
+
+                            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">
+                                <span class="glyphicon glyphicon-pushpin"></span><a href="@Url.Action("Show", new { id = item.Event_Id })">@item.EventName</a></h4>
+                            <div class="btn-group pull-right">
+                                <button class="btn btn-default btn-md">@Resource.Resource.time : @String.Format("{0:g}", item.EventTime)</button>
+                            </div>
+
+
+                        </div>
+                        <div class="panel-body">
+                            @item.EventDescription
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <div class="btn-group pull-left">
+                                <button class="btn btn-default btn-md">@Resource.Resource.numberParticipant : @item.UserProfiles.Count</button>
+                                @{
+                    var username = new EventsWebApp.Models.EventsAppDb().UserProfiles.Find(item.UserID).UserTrueName;
+                                }
+                                <a href="@Url.Action("Show", "UserProfile", new { id = item.UserID })" class="btn btn-default btn-md">@Resource.Resource.creator: @username</a>
+                            </div>
+
+                            <div class="btn-group pull-right">
+                                @if (item.UserID == ViewBag.CurrentUserId)
+                                {
+                                    <a href="@Url.Action("Remove", new { id = item.Event_Id })" onclick="return confirm('@Resource.Resource.areYouSure')" class="btn btn-danger btn-md"><span class="glyphicon glyphicon-trash"></span>@Resource.Resource.delete</a>
+                                }
+
+                                @if (item.UserProfiles.Contains(ViewBag.CurrentUser))
+                                {
+                                    <a href="@Url.Action("Subscribe", new { id = item.Event_Id, ReturnPage = "Index" })" class="btn btn-warning btn-md">
+                                        <span class="glyphicon glyphicon-thumbs-down"></span>@Resource.Resource.unSubscribe</a>
+                        
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Subscribe", new { id = item.Event_Id, ReturnPage = "Index" })" class="btn btn-success btn-md">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>@Resource.Resource.subscribe</a>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                                if (item.Subjects != null)
+                                {
+                    <h4>Темы: 
+                            @if (item.Subjects.Split(',')[0] != "None")
+                            {
+                                foreach (string s in item.Subjects.Split(','))
+                                {
+                                <span class="label label-info">@s</span>
+                                }
+                            }
+                    </h4>
+                                }
+                    
+                    <hr />
+
+                }
+
+
+
+
+
+
+            </div>
+            <div class="col-xs-3">
+
+
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-user text-success"></span>@Resource.Resource.mostActiveParticipant</a>
+                            </h4>
+                        </div>
+
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body panel-body-users" align="center">
+                                <ul class="list-group">
+                                    <h3>
+                                    @foreach (var subscriber in ViewBag.ActiveSubscribers)
+                                    { 
+                                        <li class="list-group-item">
+                                            
+                                           <span class="label label-success">
+                                            <a href="@Url.Action("Show", "UserProfile", new { id = subscriber.UserId })">@subscriber.UserTrueName
+                                            </a>
+                                        </span>
+                                                
+                                        </li>
+                                        
+                                    }
+                                    </h3>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
