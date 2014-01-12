@@ -12,9 +12,9 @@
     <div class="panel panel-default login-style">
 
         <ul class="nav nav-tabs" id="logintabs">
-            <li><a href="#logintab" data-toggle="tab"><span class="glyphicon glyphicon-home"></span> Войти</a></li>
+            <li><a href="#logintab" data-toggle="tab"><span class="glyphicon glyphicon-home"></span> @Resource.Resource.enter</a></li>
             
-            <li><a href="#registertab" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Зарегистироваться</a></li> 
+            <li><a href="#registertab" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>@Resource.Resource.register</a></li> 
         </ul>
         
 
@@ -25,13 +25,13 @@
        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form", ReturnUrl = ViewBag.ReturnUrl }))
 {
     @Html.AntiForgeryToken()
-     @Html.ValidationSummary(true, "Ошибка!", new { @class="alert alert-danger"})
+     @Html.ValidationSummary(true, Resource.Resource.error, new { @class="alert alert-danger"})
                <div class="panel-body">
 
                         <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            @Html.TextBoxFor(m => m.loginModel.UserName, new { @class = "form-control input-lg", @placeholder = "Логин", @required = ""})
+                            @Html.TextBoxFor(m => m.loginModel.UserName, new { @class = "form-control input-lg", @placeholder = Resource.Resource.login, @required = ""})
                         </div>
                         @Html.ValidationMessageFor(m => m.loginModel.UserName)
                         </div>
@@ -39,7 +39,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>
                                 </span>
-                               @Html.PasswordFor(m => m.loginModel.Password, new { @class = "form-control input-lg", @placeholder = "Пароль", @required = ""})
+                               @Html.PasswordFor(m => m.loginModel.Password, new { @class = "form-control input-lg", @placeholder = Resource.Resource.password, @required = ""})
                            
                             </div>
                              @Html.ValidationMessageFor(m => m.loginModel.Password)
@@ -48,14 +48,13 @@
                             <div class="input-group">
                                <label class="input-lg">
                                     @Html.CheckBoxFor(m => m.loginModel.RememberMe)
-                                    Запомнить меня
+                                    @Resource.Resource.rememberMe
                                 </label> 
                             </div>
                        
                 </div>
                 <div class="panel-footer">
-                    <!--<input type="submit" class="btn btn-success btn-lg btn-block" value="Вход">-->
-                    <button type="submit" class="btn btn-success btn-lg btn-block" value="Вход"><i class="glyphicon glyphicon-ok-sign"></i> Вход</button>
+                    <button type="submit" class="btn btn-success btn-lg btn-block" value="@Resource.Resource.enter"><i class="glyphicon glyphicon-ok-sign"></i>@Resource.Resource.enter</button>
                        
                 </div>
 }
@@ -75,7 +74,7 @@
                         <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            @Html.TextBoxFor(m => m.registerModel.UserName, new { @class = "form-control input-lg", @placeholder = "Логин", @required = ""})
+                            @Html.TextBoxFor(m => m.registerModel.UserName, new { @class = "form-control input-lg", @placeholder = Resource.Resource.login, @required = ""})
                         </div>
                         @Html.ValidationMessageFor(m => m.registerModel.UserName)
                         </div>
@@ -83,7 +82,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>
                                 </span>
-                               @Html.PasswordFor(m => m.registerModel.Password, new { @class = "form-control input-lg", @placeholder = "Пароль", @required = ""})
+                               @Html.PasswordFor(m => m.registerModel.Password, new { @class = "form-control input-lg", @placeholder = Resource.Resource.password, @required = ""})
                            
                             </div>
                              @Html.ValidationMessageFor(m => m.registerModel.Password)
@@ -92,7 +91,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>
                                 </span>
-                               @Html.PasswordFor(m => m.registerModel.ConfirmPassword, new { @class = "form-control input-lg", @placeholder = "Повторите пароль", @required = ""})
+                               @Html.PasswordFor(m => m.registerModel.ConfirmPassword, new { @class = "form-control input-lg", @placeholder = Resource.Resource.repeatPassword, @required = ""})
                            
                             </div>
                              @Html.ValidationMessageFor(m => m.registerModel.ConfirmPassword)
@@ -100,7 +99,7 @@
      </div> 
                         
     <div class="panel-footer">
-        <button type="submit" class="btn btn-primary btn-lg btn-block" value="Регистрация"><i class="glyphicon glyphicon-briefcase"></i> Регистрация</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" value="Регистрация"><i class="glyphicon glyphicon-briefcase"></i> @Resource.Resource.register</button>
     </div>
 
 }
@@ -115,12 +114,8 @@
  
 
 
-<!--
-<section class="social" id="socialLoginForm">
-    <h2>Use another service to log in.</h2>
+
     @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-</section>
--->
 
 </div>
 
@@ -131,7 +126,7 @@
 <script>
             $('[rel=tooltip]').tooltip()
 
-            $('#logintabs a:first').tab('show')//to select first tab
+            $('#logintabs a:first').tab('show')
         </script>
 
 
