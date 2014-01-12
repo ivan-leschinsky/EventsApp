@@ -14,7 +14,7 @@ using WebMatrix.WebData;
 
 namespace EventsWebApp
 {
- 
+//sss 
     public class MvcApplication : System.Web.HttpApplication
     {
 
