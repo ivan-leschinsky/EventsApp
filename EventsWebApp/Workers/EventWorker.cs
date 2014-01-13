@@ -42,7 +42,9 @@ namespace EventsWebApp.Workers
                     if (event_.Subjects.Contains(userInterest))
                     {
                         trueEvents.Add(event_);
+                        break;
                     }
+                    break;
                 }
             }
             return trueEvents; 

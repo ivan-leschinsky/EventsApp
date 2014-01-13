@@ -126,7 +126,7 @@ namespace EventsWebApp.Controllers
 
         public ActionResult Search(string searchText)
         {
-            if (string.IsNullOrEmpty(searchText))
+            if (string.IsNullOrEmpty(searchText) || searchText == ":")
             {
                 searchText = "empty";
             }
@@ -183,16 +183,13 @@ namespace EventsWebApp.Controllers
                 if (currentuser.Events.Contains(event_))
                 {
                     currentuser.Events.Remove(event_);
-                    userprofileRepository.Save();
-                    return PartialView("_SubscribePartial", event_);
                 }
                 else
                 {
                     currentuser.Events.Add(event_);
-                    userprofileRepository.Save();
-                    return PartialView("_UnsubscribePartial", event_);
+                    
                 }
-                
+                userprofileRepository.Save();
 
                 if (ReturnPage.Equals("Show"))
                 {
@@ -203,6 +200,7 @@ namespace EventsWebApp.Controllers
         }
 
         #region Partial Views Actions
+
         public ActionResult SubscribeAjax(int id, string ReturnPage)
         {
 
@@ -228,7 +226,6 @@ namespace EventsWebApp.Controllers
             return RedirectToAction("Index");
         }
         #endregion
-
 
         protected override void Dispose(bool disposing)
         {

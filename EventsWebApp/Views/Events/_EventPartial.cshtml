@@ -46,13 +46,10 @@
                     $('#event_subscribe_@Model.Event_Id').click(function (e) {
                         e.preventDefault();
 
-                        $.get('@Url.Action("Subscribe", new { id = Model.Event_Id, })', function (data) {
+                        $.get('@Url.Action("SubscribeAjax", new { id = Model.Event_Id, })', function (data) {
                             $('#event_container_@Model.Event_Id').html(data);
                         });
-                        $.get('@Url.Action("GetPartialSubscribers", new { id = Model.Event_Id, })', function (data) {
-                            $('#SubscribePartial-@Model.Event_Id').html(data);
-                        });
-
+                        
                     });
 
                 });
