@@ -12,7 +12,6 @@
     <fieldset>
         <legend align="center">@Resource.Resource.newEvent</legend>
 
-
         <div class="form-group">
             <label class="col-md-4 control-label" for="Name">@Resource.Resource.eventName</label>
             <div class="col-md-6">
@@ -84,19 +83,19 @@
              @foreach (EventsWebApp.Models.Subject item in new EventsWebApp.Models.EventsAppDb().Subjects.ToList())
              {
            <text>
-           if (document.getElementById('Subject-@item.SubjectId').checked == true)
-               document.getElementById('Subjects').value = "Ok";
+            if (document.getElementById('Subject-@item.SubjectId').checked == true)
+                document.getElementById('Subjects').value = "Ok";
            </text>
              }
-       }
+        }
         $(function () {
 
             $('#picker').datetimepicker({
-                language: 'ru',
+                language: '@Resource.Resource.lang',
                 startDate: '@DateTime.Now.Month/@DateTime.Now.Day/@DateTime.Now.Year',
 
-           });
-       });
+            });
+        });
     </script>
 }
 

@@ -328,7 +328,7 @@
     <value>Users</value>
   </data>
   <data name="watchProfile" xml:space="preserve">
-    <value>Watch Profile</value>
+    <value>Show Profile</value>
   </data>
   <data name="addModelError" xml:space="preserve">
     <value>The user name or password provided is incorrect.</value>
@@ -365,5 +365,8 @@
   </data>
   <data name="youMustChooseAtLeastOneTag" xml:space="preserve">
     <value>You must choose at least one tag.</value>
+  </data>
+  <data name="lang" xml:space="preserve">
+    <value />
   </data>
 </root>

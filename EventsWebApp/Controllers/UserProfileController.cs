@@ -112,8 +112,13 @@ namespace EventsWebApp.Controllers
             var userid = WebMatrix.WebData.WebSecurity.CurrentUserId;
             var user = userprofileRepository.Find(userid);
 
-            ViewBag.Subjects = subjectsRepository.All.ToList();
+            user.UserAvatarUrl = "/Content/User_Images/default-user.png";
             user.UserTrueName = user.UserName;
+            user.Subjects = "None,None";
+            userprofileRepository.Save();
+
+            ViewBag.Subjects = subjectsRepository.All.ToList();
+            
             return View(user);
         }
 

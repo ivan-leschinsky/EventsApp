@@ -126,6 +126,10 @@ namespace EventsWebApp.Controllers
 
         public ActionResult Search(string searchText)
         {
+            if (string.IsNullOrEmpty(searchText))
+            {
+                searchText = "empty";
+            }
             currentuser = userprofileRepository.AllIncluding(user => user.Events).FirstOrDefault(user => user.UserName == User.Identity.Name);
 
             string IndexPath = Server.MapPath("~/Index");

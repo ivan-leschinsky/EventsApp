@@ -366,4 +366,7 @@
   <data name="youMustChooseAtLeastOneTag" xml:space="preserve">
     <value>Вы должны выбрать хотя бы одну тему</value>
   </data>
+  <data name="lang" xml:space="preserve">
+    <value>ru</value>
+  </data>
 </root>
