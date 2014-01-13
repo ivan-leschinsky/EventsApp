@@ -187,6 +187,42 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Войти.
+        /// </summary>
+        public static string enter {
+            get {
+                return ResourceManager.GetString("enter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вход.
+        /// </summary>
+        public static string entering {
+            get {
+                return ResourceManager.GetString("entering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Войдите.
+        /// </summary>
+        public static string enterPlease {
+            get {
+                return ResourceManager.GetString("enterPlease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка!.
+        /// </summary>
+        public static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Дата и время.
         /// </summary>
         public static string eventDateTime {
@@ -241,6 +277,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Логин.
+        /// </summary>
+        public static string login {
+            get {
+                return ResourceManager.GetString("login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Самые активные участники.
         /// </summary>
         public static string mostActiveParticipant {
@@ -286,11 +331,47 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль.
+        /// </summary>
+        public static string password {
+            get {
+                return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Плеер.
         /// </summary>
         public static string player {
             get {
                 return ResourceManager.GetString("player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Зарегистрироваться.
+        /// </summary>
+        public static string register {
+            get {
+                return ResourceManager.GetString("register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Запомнить меня.
+        /// </summary>
+        public static string rememberMe {
+            get {
+                return ResourceManager.GetString("rememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Повторите пароль.
+        /// </summary>
+        public static string repeatPassword {
+            get {
+                return ResourceManager.GetString("repeatPassword", resourceCulture);
             }
         }
         
