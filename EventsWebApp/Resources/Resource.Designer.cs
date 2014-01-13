@@ -70,6 +70,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Имя пользователя или пароль не верны..
+        /// </summary>
+        public static string addModelError {
+            get {
+                return ResourceManager.GetString("addModelError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Добавить трек.
         /// </summary>
         public static string addTrack {
@@ -228,6 +237,15 @@ namespace Resource {
         public static string currentPassword {
             get {
                 return ResourceManager.GetString("currentPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Текущий пароль неверен или новый пароль не корректен..
+        /// </summary>
+        public static string currentPasswordIsIncorrect {
+            get {
+                return ResourceManager.GetString("currentPasswordIsIncorrect", resourceCulture);
             }
         }
         
@@ -435,6 +453,24 @@ namespace Resource {
         public static string password {
             get {
                 return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ваш пароль успешно изменен..
+        /// </summary>
+        public static string passwordChanged {
+            get {
+                return ResourceManager.GetString("passwordChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль успешно установлен..
+        /// </summary>
+        public static string passwordSet {
+            get {
+                return ResourceManager.GetString("passwordSet", resourceCulture);
             }
         }
         
@@ -651,6 +687,15 @@ namespace Resource {
         public static string userAbout {
             get {
                 return ResourceManager.GetString("userAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пользователь с таким именем уже существует. Пожалуйста, выберите другое имя..
+        /// </summary>
+        public static string userAlreadyExists {
+            get {
+                return ResourceManager.GetString("userAlreadyExists", resourceCulture);
             }
         }
         

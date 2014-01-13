@@ -330,4 +330,19 @@
   <data name="watchProfile" xml:space="preserve">
     <value>Просмотр профиля</value>
   </data>
+  <data name="addModelError" xml:space="preserve">
+    <value>Имя пользователя или пароль не верны.</value>
+  </data>
+  <data name="currentPasswordIsIncorrect" xml:space="preserve">
+    <value>Текущий пароль неверен или новый пароль не корректен.</value>
+  </data>
+  <data name="passwordChanged" xml:space="preserve">
+    <value>Ваш пароль успешно изменен.</value>
+  </data>
+  <data name="passwordSet" xml:space="preserve">
+    <value>Пароль успешно установлен.</value>
+  </data>
+  <data name="userAlreadyExists" xml:space="preserve">
+    <value>Пользователь с таким именем уже существует. Пожалуйста, выберите другое имя.</value>
+  </data>
 </root>

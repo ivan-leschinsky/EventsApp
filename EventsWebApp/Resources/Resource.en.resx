@@ -330,4 +330,19 @@
   <data name="watchProfile" xml:space="preserve">
     <value>Watch Profile</value>
   </data>
+  <data name="addModelError" xml:space="preserve">
+    <value>The user name or password provided is incorrect.</value>
+  </data>
+  <data name="currentPasswordIsIncorrect" xml:space="preserve">
+    <value>The current password is incorrect or the new password is invalid.</value>
+  </data>
+  <data name="passwordChanged" xml:space="preserve">
+    <value>Password Succesfully Changed.</value>
+  </data>
+  <data name="passwordSet" xml:space="preserve">
+    <value>Your password has been set.</value>
+  </data>
+  <data name="userAlreadyExists" xml:space="preserve">
+    <value>User name already exists. Please enter a different user name.</value>
+  </data>
 </root>
