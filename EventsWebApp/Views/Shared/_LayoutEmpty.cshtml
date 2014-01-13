@@ -1,28 +1,31 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>@Resource.Resource.title</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        @Styles.Render("~/Content/css")
-        @RenderSection("styles", required: false)
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-       <span align="center" style="color:white;"><h1>@Resource.Resource.title</h1></span>
-        <div class="pull-right">
-        <a href="@Url.Action("ChangeCulture", "Events", new { lang = "ru" })" class="btn btn-default">RU</a>
-                            <a href="@Url.Action("ChangeCulture", "Events", new { lang = "en" })" class="btn btn-default">EN</a>
-        </div>
-<div class="container" style="padding-top:20px">
-		@RenderBody()	
-	
-</div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@Resource.Resource.title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="btn-group pull-right" style="margin-right:10%;">
+        <a href="@Url.Action("ChangeCulture", "Localization", new { lang = "ru" })" class="btn btn-lg btn-default">RU</a>
+        <a href="@Url.Action("ChangeCulture", "Localization", new { lang = "en" })" class="btn btn-lg btn-default">EN</a>
+    </div>
+    <span align="center" style="color: white;">
+        <h1>@Resource.Resource.title</h1>
+    </span>
+
+    <div class="container" style="padding-top: 20px">
+        @RenderBody()
+
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-        
-    </body>
+
+</body>
 </html>
