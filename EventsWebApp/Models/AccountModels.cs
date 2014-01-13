@@ -7,11 +7,12 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Data.Entity.Infrastructure;
+using EventsWebApp.Filters;
 
 namespace EventsWebApp.Models
 {
-
     [Table("UserProfile")]
+    [Culture]
     public class UserProfile
     {
         [Key]
@@ -22,7 +23,7 @@ namespace EventsWebApp.Models
         public string UserInfo { get; set; }
         public string UserAvatarUrl { get; set; }
 
-        [Display(Name = "")]
+        [Display(Name = "Интересы")]
         public string Subjects { get; set; }
 
         public virtual ICollection<Event_> Events { get; set; }
@@ -34,73 +35,74 @@ namespace EventsWebApp.Models
 
     }
 
+    [Culture]
     public class RegisterExternalLoginModel
     {
-        [Required]
-        [Display(Name = "profileName", ResourceType = typeof(Resource.Resource))]
+        [Required(ErrorMessageResourceName = "NameRequired")]
+        [Display(Name = "User name")]
         public string UserName { get; set; }
 
         public string ExternalLoginData { get; set; }
     }
 
+    [Culture]
     public class LocalPasswordModel
     {
+        [Required]
         [DataType(DataType.Password)]
-        [Required(
-                  ErrorMessageResourceName = "passwordReuired")]
-        [Display(Name = "currentPassword", ResourceType = typeof(Resource.Resource))]
+        [Display(Name = "Current password")]
         public string OldPassword { get; set; }
 
-        [StringLength(100, ErrorMessageResourceName = "minimumLengthPassword", MinimumLength = 6)]
+        [Required]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "tooShortPassword", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Required(
-          ErrorMessageResourceName = "newPasswordRequired")]
-        [Display(Name = "newPassword", ResourceType = typeof(Resource.Resource))]
+        [Display(Name = "New password")]
         public string NewPassword { get; set; }
 
-        [StringLength(100, ErrorMessageResourceName = "minimumLengthPassword", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Required(
-          ErrorMessageResourceName = "confirmPasswordRequired")]
-        [Display(Name = "confirmPassword", ResourceType = typeof(Resource.Resource))]
+        [Display(Name = "Confirm new password")]
+        [Compare("NewPassword", ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "newPasswordAndConfirmationDoNotMatch")]
         public string ConfirmPassword { get; set; }
     }
 
+    [Culture]
     public class LoginModel
     {
         [Required]
-        [Display(Name = "")]
+        [Display(Name = "User name")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "")]
+        [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
 
+    [Culture]
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "")]
+        [Display(Name = "User name")]
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "", MinimumLength = 6)]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "tooShortPassword", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "")]
-        [Compare("Password", ErrorMessage = "")]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessageResourceType = typeof(Resource.Resource), ErrorMessageResourceName = "passwordsDoNotMatch")]
         public string ConfirmPassword { get; set; }
 
         public string Subjects { get; set; }
     }
 
+    [Culture]
     public class ExternalLogin
     {
         public string Provider { get; set; }

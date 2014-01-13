@@ -354,4 +354,16 @@
   <data name="passwordsDoNotMatch" xml:space="preserve">
     <value>The new password and confirmation password do not match.</value>
   </data>
+  <data name="nameRequired" xml:space="preserve">
+    <value>Name required</value>
+  </data>
+  <data name="tooShortPassword" xml:space="preserve">
+    <value>Password must be at least 6 symbols length.</value>
+  </data>
+  <data name="newPasswordAndConfirmationDoNotMatch" xml:space="preserve">
+    <value>The new password and confirmation password do not match.</value>
+  </data>
+  <data name="youMustChooseAtLeastOneTag" xml:space="preserve">
+    <value>You must choose at least one tag.</value>
+  </data>
 </root>

@@ -354,4 +354,16 @@
   <data name="passwordsDoNotMatch" xml:space="preserve">
     <value>Пароль и подтверждение пароля не совпадают.</value>
   </data>
+  <data name="nameRequired" xml:space="preserve">
+    <value>Требуется Имя</value>
+  </data>
+  <data name="tooShortPassword" xml:space="preserve">
+    <value>Пароль должен быть не короче 6 символов.</value>
+  </data>
+  <data name="newPasswordAndConfirmationDoNotMatch" xml:space="preserve">
+    <value>Новый пароль и подтверждение не совпадают. </value>
+  </data>
+  <data name="youMustChooseAtLeastOneTag" xml:space="preserve">
+    <value>Вы должны выбрать хотя бы одну тему</value>
+  </data>
 </root>

@@ -421,6 +421,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Требуется Имя.
+        /// </summary>
+        public static string nameRequired {
+            get {
+                return ResourceManager.GetString("nameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ближайшие.
         /// </summary>
         public static string nearest {
@@ -453,6 +462,15 @@ namespace Resource {
         public static string newPassword {
             get {
                 return ResourceManager.GetString("newPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Новый пароль и подтверждение не совпадают. .
+        /// </summary>
+        public static string newPasswordAndConfirmationDoNotMatch {
+            get {
+                return ResourceManager.GetString("newPasswordAndConfirmationDoNotMatch", resourceCulture);
             }
         }
         
@@ -664,6 +682,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль должен быть не короче 6 символов..
+        /// </summary>
+        public static string tooShortPassword {
+            get {
+                return ResourceManager.GetString("tooShortPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить треки.
         /// </summary>
         public static string trackDelete {
@@ -768,6 +795,15 @@ namespace Resource {
         public static string watchProfile {
             get {
                 return ResourceManager.GetString("watchProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вы должны выбрать хотя бы одну тему.
+        /// </summary>
+        public static string youMustChooseAtLeastOneTag {
+            get {
+                return ResourceManager.GetString("youMustChooseAtLeastOneTag", resourceCulture);
             }
         }
     }
