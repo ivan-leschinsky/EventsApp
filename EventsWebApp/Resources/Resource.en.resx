@@ -145,7 +145,7 @@
     <value>Changing playlist</value>
   </data>
   <data name="changeProfile" xml:space="preserve">
-    <value>Change profile</value>
+    <value>Edit profile</value>
   </data>
   <data name="changingAvatar" xml:space="preserve">
     <value>Changing avatar</value>

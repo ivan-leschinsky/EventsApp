@@ -1,0 +1,66 @@
+@model EventsWebApp.Models.Event_
+
+<div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+        <h4 class="panel-title pull-left" style="padding-top: 7.5px;">
+            <span class="glyphicon glyphicon-pushpin"></span><a href="@Url.Action("Show", new { id = Model.Event_Id })">@Model.EventName</a>
+        </h4>
+        <div class="btn-group pull-right">
+            <a href="#" class="btn btn-default btn-sm">@Resource.Resource.time : @String.Format("{0:g}", Model.EventTime)</a>
+        </div>
+
+    </div>
+    <div class="panel-body">
+        @Html.DisplayFor(model => model.EventDescription)
+
+    </div>
+    <div class="panel-footer clearfix">
+        <div id="event_container_@Model.Event_Id">
+            @{
+                var username = new EventsWebApp.Models.EventsAppDb().UserProfiles.Find(Model.UserID).UserTrueName;
+            }
+            <div class="btn-group pull-left">
+
+                <button class="btn btn-default btn-md">@Resource.Resource.numberParticipant : @Model.UserProfiles.Count</button>
+                <a href="@Url.Action("Show", "UserProfile", new { id = Model.UserID })"  class="btn btn-default btn-md">@Resource.Resource.creator: @username</a>
+            </div>
+            <div class="btn-group pull-right">
+                @if (Model.UserID == ViewBag.CurrentUserId)
+                {
+                    <a href="@Url.Action("Remove", new { id = Model.Event_Id })" onclick="return confirm('@Resource.Resource.areYouSure')" class="btn btn-danger btn-md"><span class="glyphicon glyphicon-trash"></span>@Resource.Resource.delete</a>
+                }
+
+                @if (Model.UserProfiles.Contains(ViewBag.CurrentUser))
+                {
+                    <a id="event_subscribe_@Model.Event_Id" href="@Url.Action("Subscribe", new { id = Model.Event_Id, ReturnPage = "Index" })" class="btn btn-warning btn-md">
+                        <span class="glyphicon glyphicon-thumbs-down"></span>@Resource.Resource.unSubscribe</a>
+                }
+                else
+                {
+                    <a id="event_subscribe_@Model.Event_Id" href="@Url.Action("Subscribe", new { id = Model.Event_Id, ReturnPage = "Index" })" class="btn btn-success btn-md">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>@Resource.Resource.subscribe</a>
+                }
+            </div>
+            <script>
+                $(function () {
+                    $('#event_subscribe_@Model.Event_Id').click(function (e) {
+                        e.preventDefault();
+
+                        $.get('@Url.Action("Subscribe", new { id = Model.Event_Id, })', function (data) {
+                $('#event_container_@Model.Event_Id').html(data);
+            });
+                        $.get('@Url.Action("GetPartialSubscribers", new { id = Model.Event_Id, })', function (data) {
+                            $('#SubscribePartial-@Model.Event_Id').html(data);
+            });
+
+                    });
+
+                });
+            </script>
+
+        </div>
+    </div>
+</div>
+
+
+

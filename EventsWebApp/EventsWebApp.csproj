@@ -329,6 +329,7 @@
     <Content Include="Views\Events\Search.cshtml" />
     <Content Include="Views\Events\_SubscribePartial.cshtml" />
     <Content Include="Views\Events\_UnsubscribePartial.cshtml" />
+    <Content Include="Views\Events\_EventPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

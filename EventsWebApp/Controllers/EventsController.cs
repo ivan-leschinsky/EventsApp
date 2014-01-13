@@ -170,23 +170,26 @@ namespace EventsWebApp.Controllers
 
         public ActionResult Subscribe(int id, string ReturnPage)
         {
+            
             currentuser = userprofileRepository.AllIncluding(user => user.Events).FirstOrDefault(user => user.UserName == User.Identity.Name);
             var event_ = event_Repository.Find(id);
             if (eWorker.CheckForArchive(event_) && eWorker.IsEventIcludeUserInterests(currentuser, event_))
             {
+                ViewBag.CurrentUserId = currentuser.UserId;
                 if (currentuser.Events.Contains(event_))
                 {
                     currentuser.Events.Remove(event_);
-                    event_.UserProfiles.Remove(currentuser);
+                    userprofileRepository.Save();
+                    return PartialView("_SubscribePartial", event_);
                 }
                 else
                 {
                     currentuser.Events.Add(event_);
                     userprofileRepository.Save();
-                    event_.UserProfiles.Add(currentuser);
+                    return PartialView("_UnsubscribePartial", event_);
                 }
+                
 
-                userprofileRepository.Save();
                 if (ReturnPage.Equals("Show"))
                 {
                     return RedirectToAction("Show", new { id = id });
@@ -196,7 +199,30 @@ namespace EventsWebApp.Controllers
         }
 
         #region Partial Views Actions
+        public ActionResult SubscribeAjax(int id, string ReturnPage)
+        {
 
+            currentuser = userprofileRepository.AllIncluding(user => user.Events).FirstOrDefault(user => user.UserName == User.Identity.Name);
+            var event_ = event_Repository.Find(id);
+            if (eWorker.CheckForArchive(event_) && eWorker.IsEventIcludeUserInterests(currentuser, event_))
+            {
+                ViewBag.CurrentUserId = currentuser.UserId;
+                if (currentuser.Events.Contains(event_))
+                {
+                    currentuser.Events.Remove(event_);
+                    userprofileRepository.Save();
+                    return PartialView("_SubscribePartial", event_);
+                }
+                else
+                {
+                    currentuser.Events.Add(event_);
+                    userprofileRepository.Save();
+                    return PartialView("_UnsubscribePartial", event_);
+                }
+
+            }
+            return RedirectToAction("Index");
+        }
         #endregion
 
 

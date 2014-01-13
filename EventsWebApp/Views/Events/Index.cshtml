@@ -16,55 +16,10 @@
 
                 @foreach (var item in Model)
                 {
-
-                    <div class="panel panel-primary">
-                        <div class="panel-heading clearfix">
-
-                            <h4 class="panel-title pull-left" style="padding-top: 7.5px;">
-                                <span class="glyphicon glyphicon-pushpin"></span><a href="@Url.Action("Show", new { id = item.Event_Id })">@item.EventName</a></h4>
-                            <div class="btn-group pull-right">
-                                <button class="btn btn-default btn-md">@Resource.Resource.time : @String.Format("{0:g}", item.EventTime)</button>
-                            </div>
-
-
-                        </div>
-                        <div class="panel-body">
-                            @item.EventDescription
-                        </div>
-                        <div class="panel-footer clearfix">
-                            <div class="btn-group pull-left">
-                                <button class="btn btn-default btn-md">@Resource.Resource.numberParticipant : @item.UserProfiles.Count</button>
-                                @{
-                    var username = new EventsWebApp.Models.EventsAppDb().UserProfiles.Find(item.UserID).UserTrueName;
-                                }
-                                <a href="@Url.Action("Show", "UserProfile", new { id = item.UserID })" class="btn btn-default btn-md">@Resource.Resource.creator: @username</a>
-                            </div>
-
-                            <div class="btn-group pull-right">
-                                @if (item.UserID == ViewBag.CurrentUserId)
-                                {
-                                    <a href="@Url.Action("Remove", new { id = item.Event_Id })" onclick="return confirm('@Resource.Resource.areYouSure')" class="btn btn-danger btn-md"><span class="glyphicon glyphicon-trash"></span>@Resource.Resource.delete</a>
-                                }
-
-                                @if (item.UserProfiles.Contains(ViewBag.CurrentUser))
-                                {
-                                    <a href="@Url.Action("Subscribe", new { id = item.Event_Id, ReturnPage = "Index" })" class="btn btn-warning btn-md">
-                                        <span class="glyphicon glyphicon-thumbs-down"></span>@Resource.Resource.unSubscribe</a>
-                        
-                                }
-                                else
-                                {
-                                    <a href="@Url.Action("Subscribe", new { id = item.Event_Id, ReturnPage = "Index" })" class="btn btn-success btn-md">
-                                        <span class="glyphicon glyphicon-thumbs-up"></span>@Resource.Resource.subscribe</a>
-                                }
-
-                            </div>
-                        </div>
-                    </div>
-
+                    @Html.Partial("_EventPartial", item)
                     
-                                if (item.Subjects != null)
-                                {
+                    if (item.Subjects != null)
+                    {
                     <h4>@Resource.Resource.tags: 
                             @if (item.Subjects.Split(',')[0] != "None")
                             {
@@ -74,10 +29,10 @@
                                 }
                             }
                     </h4>
-                                }
+                    }
                     
                     <hr />
-
+               
                 }
 
 
@@ -128,3 +83,11 @@
         <br>
     </div>
 </div>
+
+@section scripts {
+
+    @foreach (var item in Model)
+    {
+        
+    }
+}
