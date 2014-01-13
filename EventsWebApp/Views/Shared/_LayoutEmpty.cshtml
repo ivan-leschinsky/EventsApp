@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="btn-group pull-right" style="margin-right:10%;">
+    <div class="btn-group pull-right" style="margin-right: 10%;">
         <a href="@Url.Action("ChangeCulture", "Localization", new { lang = "ru" })" class="btn btn-lg btn-default">RU</a>
         <a href="@Url.Action("ChangeCulture", "Localization", new { lang = "en" })" class="btn btn-lg btn-default">EN</a>
     </div>
@@ -23,10 +23,10 @@
 
     </div>
 
-    @Scripts.Render("~/bundles/jqueryAjax")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryAjax")
     @Scripts.Render("~/bundles/bootstrap")
-    
+
     @RenderSection("scripts", required: false)
 
 </body>

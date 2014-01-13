@@ -195,7 +195,9 @@ namespace EventsWebApp.Controllers
             return RedirectToAction("Index");
         }
 
+        #region Partial Views Actions
 
+        #endregion
 
 
         protected override void Dispose(bool disposing)
