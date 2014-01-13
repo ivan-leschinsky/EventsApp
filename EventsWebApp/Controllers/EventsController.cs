@@ -6,20 +6,8 @@ using System.Web.Mvc;
 using EventsWebApp.Models;
 using EventsWebApp.Workers;
 using System.Data;
-using SimpleLucene.Impl;
-using EventsWebApp.Search;
-using SimpleLucene.IndexManagement;
-using Lucene.Net.Analysis;
-using Lucene.Net.Analysis.Standard;
-using Directory = Lucene.Net.Store.Directory;
-using Version = Lucene.Net.Util.Version;
-using Lucene.Net.Documents;
-using Lucene.Net.Store;
-using Lucene.Net.Index;
 using System.IO;
-using Lucene.Net.Search;
-using Lucene.Net.QueryParsers;
-using MultilingualSite.Filters;
+using EventsWebApp.Filters;
 
 namespace EventsWebApp.Controllers
 {
@@ -65,7 +53,7 @@ namespace EventsWebApp.Controllers
             return View(event_Repository.GetArchived(currentuser.UserId, event_ => event_.UserProfiles, event_ => event_.Songs).ToList());
         }
 
-        
+
 
         public ViewResult Show(int id)
         {
@@ -120,7 +108,8 @@ namespace EventsWebApp.Controllers
                 userprofileRepository.InsertOrUpdate(userprofile);
                 userprofileRepository.Save();
 
-                CreateIndex(event_);
+                string IndexPath = Server.MapPath("~/Index");
+                iWorker.CreateIndex(event_, IndexPath);
 
                 return RedirectToAction("Index");
             }
@@ -130,78 +119,19 @@ namespace EventsWebApp.Controllers
             }
         }
 
-
-        private void CreateIndex(Event_ entity)
-        {
-            var document = new Document();
-            document.Add(new Field("Event_Id", entity.Event_Id.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
-            document.Add(new Field("EventName", entity.EventName, Field.Store.YES, Field.Index.ANALYZED));
-            if (!string.IsNullOrEmpty(entity.EventDescription))
-            {
-                document.Add(new Field("EventDescription", entity.EventDescription, Field.Store.YES, Field.Index.ANALYZED));
-            }
-
-            Directory directory = FSDirectory.Open(new DirectoryInfo(Server.MapPath("~/Index")));
-            Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_30);
-
-            var writer = new IndexWriter(directory, analyzer, false, IndexWriter.MaxFieldLength.LIMITED);
-            writer.AddDocument(document);
-
-            writer.Optimize();
-            writer.Dispose();
-
-        }
-
-
+       
         public ActionResult Search(string searchText)
         {
             currentuser = userprofileRepository.AllIncluding(user => user.Events).FirstOrDefault(user => user.UserName == User.Identity.Name);
 
             string IndexPath = Server.MapPath("~/Index");
-            var indexSearcher = new DirectoryIndexSearcher(new DirectoryInfo(IndexPath), true);
 
-            Directory directory = FSDirectory.Open(new DirectoryInfo(Server.MapPath("~/Index")));
-            Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_30);
-
-            IndexReader indexReader = IndexReader.Open(directory, true);
-            Searcher indexSearch = new IndexSearcher(indexReader);
-
-            string[] fields = { "EventName", "EventDescription" };
-            var queryParser = new Lucene.Net.QueryParsers.MultiFieldQueryParser(Version.LUCENE_30, fields, analyzer);
-
-            var query = queryParser.Parse(searchText.ToLower() + "*");
-
-            TopDocs resultDocs = indexSearch.Search(query, indexReader.MaxDoc);
-
-            var hits = resultDocs.ScoreDocs;
-            List<Event_> ev = new List<Event_>();
-            foreach (var hit in hits)
-            {
-                var documentFromSearcher = indexSearch.Doc(hit.Doc);
-                ev.Add(event_Repository.Find(int.Parse(documentFromSearcher.Get("Event_Id"))));
-            }
-
-            indexSearch.Dispose();
-            directory.Dispose();
+            List<Event_> events = iWorker.SearchEvents(IndexPath, searchText, event_Repository);
             
-            List<Event_> trueEvents = new List<Event_>();
+            List<Event_> sortedEvents = eWorker.GetEventsByInterests(events, currentuser);
 
-            foreach (var event_ in ev)
-            {
-                foreach (string userInterest in currentuser.Subjects.Split(','))
-                {
-                    if (event_.Subjects.Contains(userInterest))
-                    {
-                        trueEvents.Add(event_);
-                    }
-
-                }
-            }
-
-            return View(new SearchModel(searchText, resultDocs.TotalHits.ToString(), trueEvents));
+            return View(new SearchModel(searchText, sortedEvents.Count.ToString(), sortedEvents));
         }
-
-        
 
         [HttpPost]
         public ActionResult AddTrack(Song model)
@@ -234,7 +164,6 @@ namespace EventsWebApp.Controllers
             return RedirectToAction("Index");
         }
 
-
         public ActionResult Subscribe(int id, string ReturnPage)
         {
             currentuser = userprofileRepository.AllIncluding(user => user.Events).FirstOrDefault(user => user.UserName == User.Identity.Name);
@@ -262,7 +191,7 @@ namespace EventsWebApp.Controllers
         public ActionResult ChangeCulture(string lang)
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
-            List<string> cultures = new List<string>() { "ru", "en"};
+            List<string> cultures = new List<string>() { "ru", "en" };
             if (!cultures.Contains(lang))
             {
                 lang = "ru";
@@ -272,7 +201,6 @@ namespace EventsWebApp.Controllers
                 cookie.Value = lang;
             else
             {
-
                 cookie = new HttpCookie("lang");
                 cookie.HttpOnly = false;
                 cookie.Value = lang;

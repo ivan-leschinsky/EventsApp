@@ -5,7 +5,7 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MultilingualSite.Filters
+namespace EventsWebApp.Filters
 {
     public class CultureAttribute : FilterAttribute, IActionFilter
     {
