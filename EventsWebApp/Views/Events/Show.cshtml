@@ -88,18 +88,18 @@
                             <div class="panel-body panel-body-users" align="center">
                                 <ul class="list-group">
                                     <h3>
-                                    @foreach (var subscriber in Model.UserProfiles)
-                                    { 
-                                        <li class="list-group-item">
-                                            
-                                           <span class="label label-success">
-                                            <a href="@Url.Action("Show", "UserProfile", new { id = subscriber.UserId })">@subscriber.UserTrueName
-                                            </a>
-                                        </span>
-                                                
-                                        </li>
+                                        @foreach (var subscriber in Model.UserProfiles)
+                                        { 
+                                            <li class="list-group-item">
+
+                                                <span class="label label-success">
+                                                    <a href="@Url.Action("Show", "UserProfile", new { id = subscriber.UserId })">@subscriber.UserTrueName
+                                                    </a>
+                                                </span>
+
+                                            </li>
                                         
-                                    }
+                                        }
                                     </h3>
                                 </ul>
                             </div>
@@ -203,7 +203,10 @@
         if ($('.show_event').length > 0) {
             $('[data-toggle="tooltip"]').tooltip();
         }
+
+
     </script>
+
 }
 
 
