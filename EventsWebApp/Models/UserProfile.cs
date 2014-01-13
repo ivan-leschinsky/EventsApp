@@ -12,22 +12,20 @@ namespace EventsWebApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Event_
+    public partial class UserProfile
     {
-        public Event_()
+        public UserProfile()
         {
-            this.Songs = new HashSet<Songs>();
-            this.UserProfile = new HashSet<UserProfile>();
+            this.Event_ = new HashSet<Event_>();
         }
     
-        public int Event_Id { get; set; }
-        public string EventName { get; set; }
-        public string EventDescription { get; set; }
-        public System.DateTime EventTime { get; set; }
-        public int UserID { get; set; }
+        public int UserId { get; set; }
+        public string UserName { get; set; }
+        public string UserTrueName { get; set; }
+        public string UserInfo { get; set; }
+        public string UserAvatarUrl { get; set; }
         public string Subjects { get; set; }
     
-        public virtual ICollection<Songs> Songs { get; set; }
-        public virtual ICollection<UserProfile> UserProfile { get; set; }
+        public virtual ICollection<Event_> Event_ { get; set; }
     }
 }

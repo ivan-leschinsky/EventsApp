@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EventjDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EventjDbModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="EventjDbModel.Store.__MigrationHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Event_" EntityType="EventjDbModel.Store.Event_" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Songs" EntityType="EventjDbModel.Store.Songs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subjects" EntityType="EventjDbModel.Store.Subjects" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="EventjDbModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfileEvent_" EntityType="EventjDbModel.Store.UserProfileEvent_" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Membership" EntityType="EventjDbModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="EventjDbModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_dbo_Songs_dbo_Event__Event_Id" Association="EventjDbModel.Store.FK_dbo_Songs_dbo_Event__Event_Id">
+            <End Role="Event_" EntitySet="Event_" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserProfileEvent__dbo_Event__Event__Event_Id" Association="EventjDbModel.Store.FK_dbo_UserProfileEvent__dbo_Event__Event__Event_Id">
+            <End Role="Event_" EntitySet="Event_" />
+            <End Role="UserProfileEvent_" EntitySet="UserProfileEvent_" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserProfileEvent__dbo_UserProfile_UserProfile_UserId" Association="EventjDbModel.Store.FK_dbo_UserProfileEvent__dbo_UserProfile_UserProfile_UserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserProfileEvent_" EntitySet="UserProfileEvent_" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="Event_">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+          </Key>
+          <Property Name="Event_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EventName" Type="nvarchar(max)" />
+          <Property Name="EventDescription" Type="nvarchar(max)" />
+          <Property Name="EventTime" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Subjects" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Songs">
+          <Key>
+            <PropertyRef Name="SongId" />
+          </Key>
+          <Property Name="SongId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SongName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SongUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Event_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="SubjectId" />
+          </Key>
+          <Property Name="SubjectId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="UserTrueName" Type="nvarchar(max)" />
+          <Property Name="UserInfo" Type="nvarchar(max)" />
+          <Property Name="UserAvatarUrl" Type="nvarchar(max)" />
+          <Property Name="Subjects" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserProfileEvent_">
+          <Key>
+            <PropertyRef Name="UserProfile_UserId" />
+            <PropertyRef Name="Event__Event_Id" />
+          </Key>
+          <Property Name="UserProfile_UserId" Type="int" Nullable="false" />
+          <Property Name="Event__Event_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_Songs_dbo_Event__Event_Id">
+          <End Role="Event_" Type="EventjDbModel.Store.Event_" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Songs" Type="EventjDbModel.Store.Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event_">
+              <PropertyRef Name="Event_Id" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="Event_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserProfileEvent__dbo_Event__Event__Event_Id">
+          <End Role="Event_" Type="EventjDbModel.Store.Event_" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserProfileEvent_" Type="EventjDbModel.Store.UserProfileEvent_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event_">
+              <PropertyRef Name="Event_Id" />
+            </Principal>
+            <Dependent Role="UserProfileEvent_">
+              <PropertyRef Name="Event__Event_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserProfileEvent__dbo_UserProfile_UserProfile_UserId">
+          <End Role="UserProfile" Type="EventjDbModel.Store.UserProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserProfileEvent_" Type="EventjDbModel.Store.UserProfileEvent_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserProfileEvent_">
+              <PropertyRef Name="UserProfile_UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EventjDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EventjDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="EventjDbModel.C__MigrationHistory" />
+          <EntitySet Name="Event_" EntityType="EventjDbModel.Event_" />
+          <EntitySet Name="Songs" EntityType="EventjDbModel.Songs" />
+          <EntitySet Name="Subjects" EntityType="EventjDbModel.Subjects" />
+          <EntitySet Name="UserProfile" EntityType="EventjDbModel.UserProfile" />
+          <EntitySet Name="webpages_Membership" EntityType="EventjDbModel.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="EventjDbModel.webpages_OAuthMembership" />
+          <AssociationSet Name="FK_dbo_Songs_dbo_Event__Event_Id" Association="EventjDbModel.FK_dbo_Songs_dbo_Event__Event_Id">
+            <End Role="Event_" EntitySet="Event_" />
+            <End Role="Songs" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="UserProfileEvent_" Association="EventjDbModel.UserProfileEvent_">
+            <End Role="Event_" EntitySet="Event_" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Event_">
+          <Key>
+            <PropertyRef Name="Event_Id" />
+          </Key>
+          <Property Name="Event_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EventDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EventTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Subjects" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Songs" Relationship="EventjDbModel.FK_dbo_Songs_dbo_Event__Event_Id" FromRole="Event_" ToRole="Songs" />
+          <NavigationProperty Name="UserProfile" Relationship="EventjDbModel.UserProfileEvent_" FromRole="Event_" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Songs">
+          <Key>
+            <PropertyRef Name="SongId" />
+          </Key>
+          <Property Name="SongId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SongName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SongUrl" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Event_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event_" Relationship="EventjDbModel.FK_dbo_Songs_dbo_Event__Event_Id" FromRole="Songs" ToRole="Event_" />
+        </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="SubjectId" />
+          </Key>
+          <Property Name="SubjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserTrueName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserInfo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserAvatarUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Subjects" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Event_" Relationship="EventjDbModel.UserProfileEvent_" FromRole="UserProfile" ToRole="Event_" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_Songs_dbo_Event__Event_Id">
+          <End Role="Event_" Type="EventjDbModel.Event_" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Songs" Type="EventjDbModel.Songs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event_">
+              <PropertyRef Name="Event_Id" />
+            </Principal>
+            <Dependent Role="Songs">
+              <PropertyRef Name="Event_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserProfileEvent_">
+          <End Role="Event_" Type="EventjDbModel.Event_" Multiplicity="*" />
+          <End Role="UserProfile" Type="EventjDbModel.UserProfile" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EventjDbModelStoreContainer" CdmEntityContainer="EventjDbEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="EventjDbModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event_">
+            <EntityTypeMapping TypeName="EventjDbModel.Event_">
+              <MappingFragment StoreEntitySet="Event_">
+                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Subjects" ColumnName="Subjects" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songs">
+            <EntityTypeMapping TypeName="EventjDbModel.Songs">
+              <MappingFragment StoreEntitySet="Songs">
+                <ScalarProperty Name="SongId" ColumnName="SongId" />
+                <ScalarProperty Name="SongName" ColumnName="SongName" />
+                <ScalarProperty Name="SongUrl" ColumnName="SongUrl" />
+                <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="EventjDbModel.Subjects">
+              <MappingFragment StoreEntitySet="Subjects">
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfile">
+            <EntityTypeMapping TypeName="EventjDbModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserTrueName" ColumnName="UserTrueName" />
+                <ScalarProperty Name="UserInfo" ColumnName="UserInfo" />
+                <ScalarProperty Name="UserAvatarUrl" ColumnName="UserAvatarUrl" />
+                <ScalarProperty Name="Subjects" ColumnName="Subjects" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="EventjDbModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="EventjDbModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserProfileEvent_" TypeName="EventjDbModel.UserProfileEvent_" StoreEntitySet="UserProfileEvent_">
+            <EndProperty Name="Event_">
+              <ScalarProperty Name="Event_Id" ColumnName="Event__Event_Id" />
+            </EndProperty>
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="UserId" ColumnName="UserProfile_UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

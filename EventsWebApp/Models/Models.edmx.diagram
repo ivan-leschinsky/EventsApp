@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="85a52e442f964011abfa33d70a115da2" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="EventjDbModel.C__MigrationHistory" Width="1.5" PointX="13.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventjDbModel.Event_" Width="1.5" PointX="7.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventjDbModel.Songs" Width="1.5" PointX="9.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventjDbModel.Subjects" Width="1.5" PointX="3" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventjDbModel.UserProfile" Width="1.5" PointX="5.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventjDbModel.webpages_Membership" Width="1.5" PointX="13.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventjDbModel.webpages_OAuthMembership" Width="1.5" PointX="14" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="EventjDbModel.FK_dbo_Songs_dbo_Event__Event_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="EventjDbModel.UserProfileEvent_" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
