@@ -38,10 +38,14 @@ namespace EventsWebApp.Controllers
 
         public ActionResult Index()
         {
+            if (Request.IsAjaxRequest())
+                return PartialView("_SubscribePartial");
+
             currentuser = userprofileRepository.AllIncluding(user => user.Events).FirstOrDefault(user => user.UserName == User.Identity.Name);
             ViewBag.CurrentUser = currentuser;
             ViewBag.CurrentUserId = currentuser.UserId;
             ViewBag.ActiveSubscribers = allUsersIncluding.Where(i => i.Events.Count > 0).OrderByDescending(i => i.Events.Count).Take(5);
+
 
             return View(event_Repository.GetIndex(currentuser.UserId, event_ => event_.UserProfiles, event_ => event_.Songs).ToList());
         }
@@ -119,7 +123,7 @@ namespace EventsWebApp.Controllers
             }
         }
 
-       
+
         public ActionResult Search(string searchText)
         {
             currentuser = userprofileRepository.AllIncluding(user => user.Events).FirstOrDefault(user => user.UserName == User.Identity.Name);
@@ -127,7 +131,7 @@ namespace EventsWebApp.Controllers
             string IndexPath = Server.MapPath("~/Index");
 
             List<Event_> events = iWorker.SearchEvents(IndexPath, searchText, event_Repository);
-            
+
             List<Event_> sortedEvents = eWorker.GetEventsByInterests(events, currentuser);
 
             return View(new SearchModel(searchText, sortedEvents.Count.ToString(), sortedEvents));
@@ -173,13 +177,21 @@ namespace EventsWebApp.Controllers
                 if (currentuser.Events.Contains(event_))
                 {
                     currentuser.Events.Remove(event_);
+                    userprofileRepository.Save();
+                    event_.UserProfiles.Remove(currentuser);
+                    if (Request.IsAjaxRequest())
+                        return PartialView("_UnsubscribePartial", event_);
                 }
                 else
                 {
                     currentuser.Events.Add(event_);
+                    userprofileRepository.Save();
+                    event_.UserProfiles.Add(currentuser);
+                    if (Request.IsAjaxRequest())
+                        return PartialView("_SubscribePartial", event_);
                 }
 
-                userprofileRepository.Save();
+
                 if (ReturnPage.Equals("Show"))
                 {
                     return RedirectToAction("Show", new { id = id });

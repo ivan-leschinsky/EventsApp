@@ -278,6 +278,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment-with-langs.min.js" />
     <Content Include="Web.config">
@@ -322,6 +328,8 @@
     <Content Include="Views\UserProfile\FirstSetup.cshtml" />
     <Content Include="Views\Events\Archived.cshtml" />
     <Content Include="Views\Events\Search.cshtml" />
+    <Content Include="Views\Events\_SubscribePartial.cshtml" />
+    <Content Include="Views\Events\_UnsubscribePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

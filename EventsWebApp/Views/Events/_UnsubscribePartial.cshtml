@@ -1,0 +1,5 @@
+@model EventsWebApp.Models.Event_
+<a href="@Url.Action("Subscribe", new { id = Model.Event_Id, ReturnPage = "Show" })" class="btn btn-warning btn-md"
+    onclick="Sys.Mvc.AsyncHyperlink.handleClick(this, new Sys.UI.DomEvent(event), { insertionMode: Sys.Mvc.InsertionMode.replace, updateTargetId: 'subscribe' });"
+    >
+    <span class="glyphicon glyphicon-thumbs-down"></span>@Resource.Resource.unSubscribe</a>

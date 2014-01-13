@@ -45,16 +45,10 @@
                                 }
                                 if (ViewBag.Interests)
                                 {
-                                    if (Model.UserProfiles.Contains(ViewBag.CurrentUser))
-                                    {
-                                <a href="@Url.Action("Subscribe", new { id = Model.Event_Id, ReturnPage = "Show" })" class="btn btn-warning btn-md">
-                                    <span class="glyphicon glyphicon-thumbs-down"></span>@Resource.Resource.unSubscribe</a>
-                                    }
-                                    else
-                                    {
-                                <a href="@Url.Action("Subscribe", new { id = Model.Event_Id, ReturnPage = "Show" })" class="btn btn-success btn-md">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>@Resource.Resource.subscribe</a>
-                                    }
+                                <div id="subscribe">
+                                    @Html.Partial("_SubscribePartial")
+                                </div>
+                                
                                 }
 
                             }
@@ -88,18 +82,18 @@
                             <div class="panel-body panel-body-users" align="center">
                                 <ul class="list-group">
                                     <h3>
-                                    @foreach (var subscriber in Model.UserProfiles)
-                                    { 
-                                        <li class="list-group-item">
-                                            
-                                           <span class="label label-success">
-                                            <a href="@Url.Action("Show", "UserProfile", new { id = subscriber.UserId })">@subscriber.UserTrueName
-                                            </a>
-                                        </span>
-                                                
-                                        </li>
+                                        @foreach (var subscriber in Model.UserProfiles)
+                                        { 
+                                            <li class="list-group-item">
+
+                                                <span class="label label-success">
+                                                    <a href="@Url.Action("Show", "UserProfile", new { id = subscriber.UserId })">@subscriber.UserTrueName
+                                                    </a>
+                                                </span>
+
+                                            </li>
                                         
-                                    }
+                                        }
                                     </h3>
                                 </ul>
                             </div>
@@ -203,7 +197,10 @@
         if ($('.show_event').length > 0) {
             $('[data-toggle="tooltip"]').tooltip();
         }
+
+
     </script>
+
 }
 
 
