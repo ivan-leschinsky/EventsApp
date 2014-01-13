@@ -345,4 +345,13 @@
   <data name="userAlreadyExists" xml:space="preserve">
     <value>Пользователь с таким именем уже существует. Пожалуйста, выберите другое имя.</value>
   </data>
+  <data name="atLeastOneTag" xml:space="preserve">
+    <value>Вы должны выбрать хотя бы одну тему</value>
+  </data>
+  <data name="minimumLengthPassword" xml:space="preserve">
+    <value>Пароль должен быть не менее 6 символов.</value>
+  </data>
+  <data name="passwordsDoNotMatch" xml:space="preserve">
+    <value>Пароль и подтверждение пароля не совпадают.</value>
+  </data>
 </root>

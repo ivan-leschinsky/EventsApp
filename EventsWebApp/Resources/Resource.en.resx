@@ -345,4 +345,13 @@
   <data name="userAlreadyExists" xml:space="preserve">
     <value>User name already exists. Please enter a different user name.</value>
   </data>
+  <data name="atLeastOneTag" xml:space="preserve">
+    <value>You should choose at least one tag.</value>
+  </data>
+  <data name="minimumLengthPassword" xml:space="preserve">
+    <value>The password must be at least 6 characters long.</value>
+  </data>
+  <data name="passwordsDoNotMatch" xml:space="preserve">
+    <value>The new password and confirmation password do not match.</value>
+  </data>
 </root>

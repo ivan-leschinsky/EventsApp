@@ -31,7 +31,7 @@ namespace EventsWebApp.Filters
 
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            //не реализован
+
         }
     }
 }

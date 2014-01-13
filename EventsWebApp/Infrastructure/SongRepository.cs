@@ -39,10 +39,8 @@ namespace EventsWebApp.Models
         public void InsertOrUpdate(Song song)
         {
             if (song.SongId == default(int)) {
-                // New entity
                 context.Songs.Add(song);
             } else {
-                // Existing entity
                 context.Entry(song).State = EntityState.Modified;
             }
         }

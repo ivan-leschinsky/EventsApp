@@ -115,6 +115,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Вы должны выбрать хотя бы одну тему.
+        /// </summary>
+        public static string atLeastOneTag {
+            get {
+                return ResourceManager.GetString("atLeastOneTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Аватар.
         /// </summary>
         public static string avatar {
@@ -394,6 +403,15 @@ namespace Resource {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль должен быть не менее 6 символов..
+        /// </summary>
+        public static string minimumLengthPassword {
+            get {
+                return ResourceManager.GetString("minimumLengthPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Самые активные участники.
         /// </summary>
         public static string mostActiveParticipant {
@@ -462,6 +480,15 @@ namespace Resource {
         public static string passwordChanged {
             get {
                 return ResourceManager.GetString("passwordChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль и подтверждение пароля не совпадают..
+        /// </summary>
+        public static string passwordsDoNotMatch {
+            get {
+                return ResourceManager.GetString("passwordsDoNotMatch", resourceCulture);
             }
         }
         

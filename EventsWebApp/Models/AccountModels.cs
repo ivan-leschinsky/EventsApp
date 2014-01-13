@@ -22,7 +22,7 @@ namespace EventsWebApp.Models
         public string UserInfo { get; set; }
         public string UserAvatarUrl { get; set; }
 
-        [Display(Name = "Интересы")]
+        [Display(Name = "")]
         public string Subjects { get; set; }
 
         public virtual ICollection<Event_> Events { get; set; }
@@ -37,7 +37,7 @@ namespace EventsWebApp.Models
     public class RegisterExternalLoginModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "profileName", ResourceType = typeof(Resource.Resource))]
         public string UserName { get; set; }
 
         public string ExternalLoginData { get; set; }
@@ -45,53 +45,57 @@ namespace EventsWebApp.Models
 
     public class LocalPasswordModel
     {
-        [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Required(
+                  ErrorMessageResourceName = "passwordReuired")]
+        [Display(Name = "currentPassword", ResourceType = typeof(Resource.Resource))]
         public string OldPassword { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessageResourceName = "minimumLengthPassword", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Required(
+          ErrorMessageResourceName = "newPasswordRequired")]
+        [Display(Name = "newPassword", ResourceType = typeof(Resource.Resource))]
         public string NewPassword { get; set; }
 
+        [StringLength(100, ErrorMessageResourceName = "minimumLengthPassword", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Required(
+          ErrorMessageResourceName = "confirmPasswordRequired")]
+        [Display(Name = "confirmPassword", ResourceType = typeof(Resource.Resource))]
         public string ConfirmPassword { get; set; }
     }
 
     public class LoginModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "")]
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "")]
+        [Compare("Password", ErrorMessage = "")]
         public string ConfirmPassword { get; set; }
 
         public string Subjects { get; set; }

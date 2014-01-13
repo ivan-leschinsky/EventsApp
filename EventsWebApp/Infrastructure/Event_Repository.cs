@@ -93,12 +93,10 @@ namespace EventsWebApp.Models
         {
             if (event_.Event_Id == default(int))
             {
-                // New entity
                 context.Events.Add(event_);
             }
             else
             {
-                // Existing entity
                 context.Entry(event_).State = EntityState.Modified;
             }
         }

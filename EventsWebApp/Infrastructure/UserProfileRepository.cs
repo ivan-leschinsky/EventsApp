@@ -46,10 +46,8 @@ namespace EventsWebApp.Models
         public void InsertOrUpdate(UserProfile userprofile)
         {
             if (userprofile.UserId == default(int)) {
-                // New entity
                 context.UserProfiles.Add(userprofile);
             } else {
-                // Existing entity
                 context.Entry(userprofile).State = EntityState.Modified;
             }
         }
@@ -76,8 +74,6 @@ namespace EventsWebApp.Models
         IQueryable<UserProfile> All { get; }
         IQueryable<UserProfile> AllIncluding(params Expression<Func<UserProfile, object>>[] includeProperties);
         UserProfile Find(int id);
-        //UserProfile GetByName(string Name);
-        //UserProfile GetIncluding(string Name,params Expression<Func<UserProfile, object>>[] includeProperties);
         void InsertOrUpdate(UserProfile userprofile);
         void Delete(int id);
         void Save();

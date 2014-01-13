@@ -28,8 +28,8 @@ namespace EventsWebApp.Models
         public System.DateTime EventTime { get; set; }
         public int UserID { get; set; }
 
-        [Required(ErrorMessage = "Вы должны выбрать хотя бы одну тему")]
-        [Display(Name = "Темы")]
+        [Required(ErrorMessage = "")]
+        [Display(Name = "")]
         public string Subjects { get; set; }
 
         public virtual ICollection<UserProfile> UserProfiles { get; set; }

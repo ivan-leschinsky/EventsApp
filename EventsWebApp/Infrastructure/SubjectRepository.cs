@@ -39,10 +39,8 @@ namespace EventsWebApp.Models
         public void InsertOrUpdate(Subject subject)
         {
             if (subject.SubjectId == default(int)) {
-                // New entity
                 context.Subjects.Add(subject);
             } else {
-                // Existing entity
                 context.Entry(subject).State = EntityState.Modified;
             }
         }

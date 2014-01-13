@@ -141,7 +141,7 @@ namespace EventsWebApp.Controllers
             if (ModelState.IsValid)
             {
                 userprofile.Subjects = Request.Form["SubjectsIds"];
-                if (string.IsNullOrEmpty(userprofile.Subjects))//this is used when no checkbox is checked
+                if (string.IsNullOrEmpty(userprofile.Subjects))
                     userprofile.Subjects = "None,None";
                 userprofile.UserAvatarUrl = "/Content/User_Images/default-user.png";
                 userprofileRepository.InsertOrUpdate(userprofile);
