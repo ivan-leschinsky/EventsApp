@@ -42,7 +42,7 @@ namespace EventsWebApp.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            ModelState.AddModelError("", Resource.Resource.addModelError);
             return View(new LoginPageModel() { loginModel = model });
         }
 
@@ -106,10 +106,8 @@ namespace EventsWebApp.Controllers
             string ownerAccount = OAuthWebSecurity.GetUserName(provider, providerUserId);
             ManageMessageId? message = null;
 
-            // Only disassociate the account if the currently logged in user is the owner
             if (ownerAccount == User.Identity.Name)
             {
-                // Use a transaction to prevent the user from deleting their last login credential
                 using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.Serializable }))
                 {
                     bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
@@ -130,11 +128,9 @@ namespace EventsWebApp.Controllers
 
         public ActionResult Manage(ManageMessageId? message)
         {
-            //TODO: локализовать
-            ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Ваш пароль успешно изменен."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+              ViewBag.StatusMessage =
+                message == ManageMessageId.ChangePasswordSuccess ? Resource.Resource.passwordChanged
+                : message == ManageMessageId.SetPasswordSuccess ? Resource.Resource.passwordSet
                 : "";
             
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -151,7 +147,6 @@ namespace EventsWebApp.Controllers
             ViewBag.ReturnUrl = Url.Action("Manage");
                 if (ModelState.IsValid)
                 {
-                    // ChangePassword will throw an exception rather than return false in certain failure scenarios.
                     bool changePasswordSucceeded;
                     try
                     {
@@ -168,8 +163,7 @@ namespace EventsWebApp.Controllers
                     }
                     else
                     {
-                        //TODO: тут тоже
-                        ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                        ModelState.AddModelError("", Resource.Resource.currentPasswordIsIncorrect);
                     }
                 }
             
@@ -206,13 +200,11 @@ namespace EventsWebApp.Controllers
 
             if (User.Identity.IsAuthenticated)
             {
-                // If the current user is logged in add the new account
                 OAuthWebSecurity.CreateOrUpdateAccount(result.Provider, result.ProviderUserId, User.Identity.Name);
                 return RedirectToLocal(returnUrl);
             }
             else
             {
-                // User is new, ask for their desired membership name
                 string loginData = OAuthWebSecurity.SerializeProviderUserId(result.Provider, result.ProviderUserId);
                 ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
                 ViewBag.ReturnUrl = returnUrl;
@@ -238,14 +230,11 @@ namespace EventsWebApp.Controllers
 
             if (ModelState.IsValid)
             {
-                // Insert a new user into the database
                 using (EventsAppDb db = new EventsAppDb())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
-                    // Check if user already exists
                     if (user == null)
                     {
-                        // Insert name into the profile table
                         db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
                         db.SaveChanges();
 
@@ -256,7 +245,7 @@ namespace EventsWebApp.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
+                        ModelState.AddModelError("UserName", Resource.Resource.userAlreadyExists);
                     }
                 }
             }
