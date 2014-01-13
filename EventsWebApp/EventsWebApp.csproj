@@ -222,14 +222,14 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\EventsAppDb.cs" />
     <Compile Include="Models\Event_.cs" />
-    <Compile Include="Models\Event_Repository.cs" />
+    <Compile Include="Infrastructure\Event_Repository.cs" />
     <Compile Include="Models\LoginPageModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\Song.cs" />
-    <Compile Include="Models\SongRepository.cs" />
+    <Compile Include="Infrastructure\SongRepository.cs" />
     <Compile Include="Models\Subject.cs" />
-    <Compile Include="Models\SubjectRepository.cs" />
-    <Compile Include="Models\UserProfileRepository.cs" />
+    <Compile Include="Infrastructure\SubjectRepository.cs" />
+    <Compile Include="Infrastructure\UserProfileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -241,9 +241,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Search\EventIndexDefinition.cs" />
-    <Compile Include="Search\EventResultDefinition.cs" />
-    <Compile Include="Search\EventQuery.cs" />
+    <Compile Include="Workers\IndexWorker.cs" />
     <Compile Include="Workers\EventWorker.cs" />
   </ItemGroup>
   <ItemGroup>

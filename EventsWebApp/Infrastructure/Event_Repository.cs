@@ -1,3 +1,4 @@
+using EventsWebApp.Workers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,28 +24,24 @@ namespace EventsWebApp.Models
         }
 
 
-        public ICollection<Event_> GetIndex(int id, params Expression<Func<Event_, object>>[] includeProperties)
+        public ICollection<Event_> GetIndex(int userId, params Expression<Func<Event_, object>>[] includeProperties)
         {
-
             IQueryable<Event_> query = context.Events.Where(e => e.EventTime > DateTime.Now);
             foreach (var includeProperty in includeProperties)
             {
                 query = query.Include(includeProperty);
             }
+
             query = query.OrderBy(e => e.EventTime);
 
             List<Event_> events = new List<Event_>();
+            UserProfile currentuser = context.UserProfiles.Find(userId);
 
-            foreach (string userInterest in context.UserProfiles.Find(id).Subjects.Split(','))
+            foreach (Event_ event_ in query.ToList())
             {
-                foreach (Event_ event_ in query.ToList())
+                if (eWorker.IsEventIcludeUserInterests(currentuser, event_))
                 {
-
-                    if (event_.Subjects.Contains(userInterest))
-                    {
-                       events.Add(event_);
-                    }
-
+                    events.Add(event_);
                 }
 
             }
@@ -53,7 +50,7 @@ namespace EventsWebApp.Models
         }
 
 
-        public ICollection<Event_> GetArchived(int id, params Expression<Func<Event_, object>>[] includeProperties)
+        public ICollection<Event_> GetArchived(int userId, params Expression<Func<Event_, object>>[] includeProperties)
         {
 
             IQueryable<Event_> query = context.Events.Where(e => e.EventTime <= DateTime.Now);
@@ -64,21 +61,16 @@ namespace EventsWebApp.Models
             query = query.OrderByDescending(e => e.EventTime);
 
             List<Event_> events = new List<Event_>();
+            UserProfile currentuser = context.UserProfiles.Find(userId);
 
-            foreach (string userInterest in context.UserProfiles.Find(id).Subjects.Split(','))
+            foreach (Event_ event_ in query.ToList())
             {
-                foreach (Event_ event_ in query.ToList())
+                if (eWorker.IsEventIcludeUserInterests(currentuser, event_))
                 {
-
-                    if (event_.Subjects.Contains(userInterest))
-                    {
-                        events.Add(event_);
-                    }
-
+                    events.Add(event_);
                 }
 
             }
-
             return events;
         }
 

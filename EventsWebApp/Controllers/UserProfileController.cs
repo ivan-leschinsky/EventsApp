@@ -6,10 +6,12 @@ using System.Web.Mvc;
 using EventsWebApp.Models;
 using System.Threading;
 using System.IO;
+using EventsWebApp.Filters;
 
 namespace EventsWebApp.Controllers
 {
     [Authorize]
+    [Culture]
     public class UserProfileController : Controller
     {
         private readonly IUserProfileRepository userprofileRepository;
@@ -97,7 +99,7 @@ namespace EventsWebApp.Controllers
                 userprofile.UserId = WebMatrix.WebData.WebSecurity.CurrentUserId;
                 userprofileRepository.InsertOrUpdate(userprofile);
                 userprofileRepository.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Events");
             }
             else
             {

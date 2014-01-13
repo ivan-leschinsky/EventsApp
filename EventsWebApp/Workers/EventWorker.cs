@@ -31,5 +31,23 @@ namespace EventsWebApp.Workers
                 return true;
             }
         }
+        public static List<Event_> GetEventsByInterests(List<Event_> events, UserProfile currentuser)
+        {
+            List<Event_> trueEvents = new List<Event_>(); 
+
+            foreach (var event_ in events)
+            {
+                foreach (string userInterest in currentuser.Subjects.Split(','))
+                {
+                    if (event_.Subjects.Contains(userInterest))
+                    {
+                        trueEvents.Add(event_);
+                    }
+                }
+            }
+            return trueEvents; 
+        }
+
+
     }
 }

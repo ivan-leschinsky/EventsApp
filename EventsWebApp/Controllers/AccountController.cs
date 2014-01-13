@@ -10,7 +10,6 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using EventsWebApp.Filters;
 using EventsWebApp.Models;
-using MultilingualSite.Filters;
 
 namespace EventsWebApp.Controllers
 {
