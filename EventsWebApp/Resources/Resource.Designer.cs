@@ -61,7 +61,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Add.
+        ///   Ищет локализованную строку, похожую на Добавить.
         /// </summary>
         public static string add {
             get {
@@ -70,7 +70,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Add track.
+        ///   Ищет локализованную строку, похожую на Добавить трек.
         /// </summary>
         public static string addTrack {
             get {
@@ -79,7 +79,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Archiv events.
+        ///   Ищет локализованную строку, похожую на Архив Событий.
         /// </summary>
         public static string archieveEvents {
             get {
@@ -88,7 +88,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Archiv.
+        ///   Ищет локализованную строку, похожую на Архив.
         /// </summary>
         public static string archive {
             get {
@@ -97,7 +97,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Are you sure?.
+        ///   Ищет локализованную строку, похожую на Вы уверены?.
         /// </summary>
         public static string areYouSure {
             get {
@@ -106,7 +106,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Avatar.
+        ///   Ищет локализованную строку, похожую на Аватар.
         /// </summary>
         public static string avatar {
             get {
@@ -115,7 +115,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Change password.
+        ///   Ищет локализованную строку, похожую на Изменить пароль.
         /// </summary>
         public static string changePassword {
             get {
@@ -124,7 +124,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Changing personal Information.
+        ///   Ищет локализованную строку, похожую на Изменение личных данных.
         /// </summary>
         public static string changePersonalData {
             get {
@@ -133,7 +133,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Changing playlist.
+        ///   Ищет локализованную строку, похожую на Изменение PlayList.
         /// </summary>
         public static string changePlaylist {
             get {
@@ -142,7 +142,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Change profile.
+        ///   Ищет локализованную строку, похожую на Изменить профиль.
         /// </summary>
         public static string changeProfile {
             get {
@@ -151,7 +151,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Changing avatar.
+        ///   Ищет локализованную строку, похожую на Изменение аватара.
         /// </summary>
         public static string changingAvatar {
             get {
@@ -160,7 +160,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Changing password.
+        ///   Ищет локализованную строку, похожую на Изменение пароля.
         /// </summary>
         public static string changingPassword {
             get {
@@ -169,7 +169,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Choose tags.
+        ///   Ищет локализованную строку, похожую на Выберите темы.
         /// </summary>
         public static string chooseTags {
             get {
@@ -178,7 +178,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Choose your interests.
+        ///   Ищет локализованную строку, похожую на Выберите Ваши интересы.
         /// </summary>
         public static string chooseYourInterest {
             get {
@@ -187,7 +187,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Confirm new password.
+        ///   Ищет локализованную строку, похожую на Подтвердите новый пароль.
         /// </summary>
         public static string confirnNewPassword {
             get {
@@ -196,7 +196,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Create event.
+        ///   Ищет локализованную строку, похожую на Создать событие.
         /// </summary>
         public static string createEvent {
             get {
@@ -205,7 +205,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Creating event.
+        ///   Ищет локализованную строку, похожую на Создание события.
         /// </summary>
         public static string creatingEvent {
             get {
@@ -214,7 +214,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Creator.
+        ///   Ищет локализованную строку, похожую на Создатель.
         /// </summary>
         public static string creator {
             get {
@@ -223,7 +223,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Password.
+        ///   Ищет локализованную строку, похожую на Текущий пароль.
         /// </summary>
         public static string currentPassword {
             get {
@@ -232,7 +232,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Delete.
+        ///   Ищет локализованную строку, похожую на Удалить.
         /// </summary>
         public static string delete {
             get {
@@ -241,7 +241,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Edit.
+        ///   Ищет локализованную строку, похожую на Редактировать.
         /// </summary>
         public static string edit {
             get {
@@ -250,7 +250,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Enter.
+        ///   Ищет локализованную строку, похожую на Войти.
         /// </summary>
         public static string enter {
             get {
@@ -259,7 +259,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Enter.
+        ///   Ищет локализованную строку, похожую на Вход.
         /// </summary>
         public static string entering {
             get {
@@ -268,7 +268,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Enter, please.
+        ///   Ищет локализованную строку, похожую на Войдите.
         /// </summary>
         public static string enterPlease {
             get {
@@ -277,7 +277,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Error!.
+        ///   Ищет локализованную строку, похожую на Ошибка!.
         /// </summary>
         public static string error {
             get {
@@ -286,7 +286,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Create event.
+        ///   Ищет локализованную строку, похожую на Создать событие.
         /// </summary>
         public static string eventCreate {
             get {
@@ -295,7 +295,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Date.
+        ///   Ищет локализованную строку, похожую на Дата и время.
         /// </summary>
         public static string eventDateTime {
             get {
@@ -304,7 +304,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Description.
+        ///   Ищет локализованную строку, похожую на Описание.
         /// </summary>
         public static string eventDescription {
             get {
@@ -313,7 +313,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Name.
+        ///   Ищет локализованную строку, похожую на Имя.
         /// </summary>
         public static string eventName {
             get {
@@ -322,7 +322,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Participant.
+        ///   Ищет локализованную строку, похожую на Участники события.
         /// </summary>
         public static string eventParticipants {
             get {
@@ -331,7 +331,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Events.
+        ///   Ищет локализованную строку, похожую на События.
         /// </summary>
         public static string events {
             get {
@@ -340,7 +340,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Show event.
+        ///   Ищет локализованную строку, похожую на Просмотр события.
         /// </summary>
         public static string eventShow {
             get {
@@ -349,7 +349,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Exit.
+        ///   Ищет локализованную строку, похожую на Выход.
         /// </summary>
         public static string exit {
             get {
@@ -358,7 +358,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Field should be date type.
+        ///   Ищет локализованную строку, похожую на Поле должно быть датой.
         /// </summary>
         public static string fieldShouldBedate {
             get {
@@ -367,7 +367,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Login.
+        ///   Ищет локализованную строку, похожую на Логин.
         /// </summary>
         public static string login {
             get {
@@ -376,7 +376,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на The most active users.
+        ///   Ищет локализованную строку, похожую на Самые активные участники.
         /// </summary>
         public static string mostActiveParticipant {
             get {
@@ -385,7 +385,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Nearest.
+        ///   Ищет локализованную строку, похожую на Ближайшие.
         /// </summary>
         public static string nearest {
             get {
@@ -394,7 +394,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Nearest events.
+        ///   Ищет локализованную строку, похожую на Ближайшие события.
         /// </summary>
         public static string nearestEvents {
             get {
@@ -403,7 +403,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на New event.
+        ///   Ищет локализованную строку, похожую на Новое событие.
         /// </summary>
         public static string newEvent {
             get {
@@ -412,7 +412,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на New password.
+        ///   Ищет локализованную строку, похожую на Новый пароль.
         /// </summary>
         public static string newPassword {
             get {
@@ -421,7 +421,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Number of participant.
+        ///   Ищет локализованную строку, похожую на Количесто Участников.
         /// </summary>
         public static string numberParticipant {
             get {
@@ -430,7 +430,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Password.
+        ///   Ищет локализованную строку, похожую на Пароль.
         /// </summary>
         public static string password {
             get {
@@ -439,7 +439,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Player.
+        ///   Ищет локализованную строку, похожую на Плеер.
         /// </summary>
         public static string player {
             get {
@@ -448,7 +448,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Edit profile.
+        ///   Ищет локализованную строку, похожую на Редактирование профиля.
         /// </summary>
         public static string profileEdit {
             get {
@@ -457,7 +457,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Username.
+        ///   Ищет локализованную строку, похожую на Имя пользователя.
         /// </summary>
         public static string profileName {
             get {
@@ -466,7 +466,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Register.
+        ///   Ищет локализованную строку, похожую на Зарегистрироваться.
         /// </summary>
         public static string register {
             get {
@@ -475,7 +475,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Remember me.
+        ///   Ищет локализованную строку, похожую на Запомнить меня.
         /// </summary>
         public static string rememberMe {
             get {
@@ -484,7 +484,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Repeat password.
+        ///   Ищет локализованную строку, похожую на Повторите пароль.
         /// </summary>
         public static string repeatPassword {
             get {
@@ -493,7 +493,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Required to fullfill field.
+        ///   Ищет локализованную строку, похожую на Требуется заполнить поле времени события.
         /// </summary>
         public static string requireToFullfillFieldTimeEvent {
             get {
@@ -502,7 +502,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Save.
+        ///   Ищет локализованную строку, похожую на Сохранить.
         /// </summary>
         public static string save {
             get {
@@ -511,7 +511,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Search.
+        ///   Ищет локализованную строку, похожую на Поиск.
         /// </summary>
         public static string search {
             get {
@@ -520,7 +520,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Search.
+        ///   Ищет локализованную строку, похожую на Поиск событий.
         /// </summary>
         public static string searchEvents {
             get {
@@ -529,7 +529,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Watch Profile.
+        ///   Ищет локализованную строку, похожую на Просмотреть профиль.
         /// </summary>
         public static string seeProfile {
             get {
@@ -538,7 +538,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Something about youself.
+        ///   Ищет локализованную строку, похожую на Коротко о Вас:.
         /// </summary>
         public static string shortlyAbout {
             get {
@@ -547,7 +547,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Show.
+        ///   Ищет локализованную строку, похожую на Показать.
         /// </summary>
         public static string show {
             get {
@@ -556,7 +556,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Sorry, nothing found.
+        ///   Ищет локализованную строку, похожую на Извините, ничего не найдено....
         /// </summary>
         public static string sorryNothingHasFound {
             get {
@@ -565,7 +565,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Subscribe.
+        ///   Ищет локализованную строку, похожую на Подписаться.
         /// </summary>
         public static string subscribe {
             get {
@@ -574,7 +574,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Tags.
+        ///   Ищет локализованную строку, похожую на Темы.
         /// </summary>
         public static string tags {
             get {
@@ -583,7 +583,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Time.
+        ///   Ищет локализованную строку, похожую на Время.
         /// </summary>
         public static string time {
             get {
@@ -592,7 +592,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на People&amp;Event.
+        ///   Ищет локализованную строку, похожую на События и люди.
         /// </summary>
         public static string title {
             get {
@@ -601,7 +601,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Delete tracks.
+        ///   Ищет локализованную строку, похожую на Удалить треки.
         /// </summary>
         public static string trackDelete {
             get {
@@ -610,7 +610,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Track name.
+        ///   Ищет локализованную строку, похожую на Название трека.
         /// </summary>
         public static string trackName {
             get {
@@ -619,7 +619,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Track URL.
+        ///   Ищет локализованную строку, похожую на Url трека.
         /// </summary>
         public static string trackUrl {
             get {
@@ -628,7 +628,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Unsubscribe.
+        ///   Ищет локализованную строку, похожую на Отписаться.
         /// </summary>
         public static string unSubscribe {
             get {
@@ -637,7 +637,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Upload Avatar.
+        ///   Ищет локализованную строку, похожую на Загрузить аватар.
         /// </summary>
         public static string uploadAvatar {
             get {
@@ -646,7 +646,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на About User.
+        ///   Ищет локализованную строку, похожую на О пользователе.
         /// </summary>
         public static string userAbout {
             get {
@@ -655,7 +655,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Edit profile.
+        ///   Ищет локализованную строку, похожую на Редактировать профиль.
         /// </summary>
         public static string userEdit {
             get {
@@ -664,7 +664,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на History events partaking.
+        ///   Ищет локализованную строку, похожую на История участия в событиях:.
         /// </summary>
         public static string userEventsHistory {
             get {
@@ -673,7 +673,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на User interests.
+        ///   Ищет локализованную строку, похожую на Интересы пользователя.
         /// </summary>
         public static string userInterests {
             get {
@@ -682,7 +682,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Users.
+        ///   Ищет локализованную строку, похожую на Пользователи.
         /// </summary>
         public static string users {
             get {
@@ -691,7 +691,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Watch Profile.
+        ///   Ищет локализованную строку, похожую на Просмотр профиля.
         /// </summary>
         public static string watchProfile {
             get {
