@@ -118,216 +118,216 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="add" xml:space="preserve">
-    <value>Добавить</value>
+    <value>Add</value>
   </data>
   <data name="addTrack" xml:space="preserve">
-    <value>Добавить трек</value>
+    <value>Add track</value>
   </data>
   <data name="archieveEvents" xml:space="preserve">
-    <value>Архив Событий</value>
+    <value>Archiv events</value>
   </data>
   <data name="archive" xml:space="preserve">
-    <value>Архив</value>
+    <value>Archive</value>
   </data>
   <data name="areYouSure" xml:space="preserve">
-    <value>Вы уверены?</value>
+    <value>Are you sure?</value>
   </data>
   <data name="avatar" xml:space="preserve">
-    <value>Аватар</value>
+    <value>Avatar</value>
   </data>
   <data name="changePassword" xml:space="preserve">
-    <value>Изменить пароль</value>
+    <value>Change password</value>
   </data>
   <data name="changePersonalData" xml:space="preserve">
-    <value>Изменение личных данных</value>
+    <value>Changing personal Information</value>
   </data>
   <data name="changePlaylist" xml:space="preserve">
-    <value>Изменение PlayList</value>
+    <value>Changing playlist</value>
   </data>
   <data name="changeProfile" xml:space="preserve">
-    <value>Изменить профиль</value>
+    <value>Change profile</value>
   </data>
   <data name="changingAvatar" xml:space="preserve">
-    <value>Изменение аватара</value>
+    <value>Changing avatar</value>
   </data>
   <data name="changingPassword" xml:space="preserve">
-    <value>Изменение пароля</value>
+    <value>Changing password</value>
   </data>
   <data name="chooseTags" xml:space="preserve">
-    <value>Выберите темы</value>
+    <value>Choose tags</value>
   </data>
   <data name="chooseYourInterest" xml:space="preserve">
-    <value>Выберите Ваши интересы</value>
+    <value>Choose your interests</value>
   </data>
   <data name="confirnNewPassword" xml:space="preserve">
-    <value>Подтвердите новый пароль</value>
+    <value>Confirm new password</value>
   </data>
   <data name="createEvent" xml:space="preserve">
-    <value>Создать событие</value>
+    <value>Create event</value>
   </data>
   <data name="creatingEvent" xml:space="preserve">
-    <value>Создание события</value>
+    <value>Creating event</value>
   </data>
   <data name="creator" xml:space="preserve">
-    <value>Создатель</value>
+    <value>Creator</value>
   </data>
   <data name="currentPassword" xml:space="preserve">
-    <value>Текущий пароль</value>
+    <value>Password</value>
   </data>
   <data name="delete" xml:space="preserve">
-    <value>Удалить</value>
+    <value>Delete</value>
   </data>
   <data name="edit" xml:space="preserve">
-    <value>Редактировать</value>
+    <value>Edit</value>
   </data>
   <data name="enter" xml:space="preserve">
-    <value>Войти</value>
+    <value>Enter</value>
   </data>
   <data name="entering" xml:space="preserve">
-    <value>Вход</value>
+    <value>Enter</value>
   </data>
   <data name="enterPlease" xml:space="preserve">
-    <value>Войдите</value>
+    <value>Enter, please</value>
   </data>
   <data name="error" xml:space="preserve">
-    <value>Ошибка!</value>
+    <value>Error!</value>
   </data>
   <data name="eventCreate" xml:space="preserve">
-    <value>Создать событие</value>
+    <value>Create event</value>
   </data>
   <data name="eventDateTime" xml:space="preserve">
-    <value>Дата и время</value>
+    <value>Date</value>
   </data>
   <data name="eventDescription" xml:space="preserve">
-    <value>Описание</value>
+    <value>Description</value>
   </data>
   <data name="eventName" xml:space="preserve">
-    <value>Имя</value>
+    <value>Name</value>
   </data>
   <data name="eventParticipants" xml:space="preserve">
-    <value>Участники события</value>
+    <value>Participant</value>
   </data>
   <data name="events" xml:space="preserve">
-    <value>События</value>
+    <value>Events</value>
   </data>
   <data name="eventShow" xml:space="preserve">
-    <value>Просмотр события</value>
+    <value>Show event</value>
   </data>
   <data name="exit" xml:space="preserve">
-    <value>Выход</value>
+    <value>Exit</value>
   </data>
   <data name="fieldShouldBedate" xml:space="preserve">
-    <value>Поле должно быть датой</value>
+    <value>Field should be date type</value>
   </data>
   <data name="login" xml:space="preserve">
-    <value>Логин</value>
+    <value>Login</value>
   </data>
   <data name="mostActiveParticipant" xml:space="preserve">
-    <value>Самые активные участники</value>
+    <value>The most active users</value>
   </data>
   <data name="nearest" xml:space="preserve">
-    <value>Ближайшие</value>
+    <value>Nearest</value>
   </data>
   <data name="nearestEvents" xml:space="preserve">
-    <value>Ближайшие события</value>
+    <value>Nearest events</value>
   </data>
   <data name="newEvent" xml:space="preserve">
-    <value>Новое событие</value>
+    <value>New event</value>
   </data>
   <data name="newPassword" xml:space="preserve">
-    <value>Новый пароль</value>
+    <value>New password</value>
   </data>
   <data name="numberParticipant" xml:space="preserve">
-    <value>Количесто Участников</value>
+    <value>Number of participant</value>
   </data>
   <data name="password" xml:space="preserve">
-    <value>Пароль</value>
+    <value>Password</value>
   </data>
   <data name="player" xml:space="preserve">
-    <value>Плеер</value>
+    <value>Player</value>
   </data>
   <data name="profileEdit" xml:space="preserve">
-    <value>Редактирование профиля</value>
+    <value>Edit profile</value>
   </data>
   <data name="profileName" xml:space="preserve">
-    <value>Имя пользователя</value>
+    <value>Username</value>
   </data>
   <data name="register" xml:space="preserve">
-    <value>Зарегистрироваться</value>
+    <value>Register</value>
   </data>
   <data name="rememberMe" xml:space="preserve">
-    <value>Запомнить меня</value>
+    <value>Remember me</value>
   </data>
   <data name="repeatPassword" xml:space="preserve">
-    <value>Повторите пароль</value>
+    <value>Repeat password</value>
   </data>
   <data name="requireToFullfillFieldTimeEvent" xml:space="preserve">
-    <value>Требуется заполнить поле времени события</value>
+    <value>Required to fullfill field</value>
   </data>
   <data name="save" xml:space="preserve">
-    <value>Сохранить</value>
+    <value>Save</value>
   </data>
   <data name="search" xml:space="preserve">
-    <value>Поиск</value>
+    <value>Search</value>
   </data>
   <data name="searchEvents" xml:space="preserve">
-    <value>Поиск событий</value>
+    <value>Search</value>
   </data>
   <data name="seeProfile" xml:space="preserve">
-    <value>Просмотреть профиль</value>
+    <value>Watch Profile</value>
   </data>
   <data name="shortlyAbout" xml:space="preserve">
-    <value>Коротко о Вас:</value>
+    <value>Something about youself</value>
   </data>
   <data name="show" xml:space="preserve">
-    <value>Показать</value>
+    <value>Show</value>
   </data>
   <data name="sorryNothingHasFound" xml:space="preserve">
-    <value>Извините, ничего не найдено...</value>
+    <value>Sorry, nothing found</value>
   </data>
   <data name="subscribe" xml:space="preserve">
-    <value>Подписаться</value>
+    <value>Subscribe</value>
   </data>
   <data name="tags" xml:space="preserve">
-    <value>Темы</value>
+    <value>Tags</value>
   </data>
   <data name="time" xml:space="preserve">
-    <value>Время</value>
+    <value>Time</value>
   </data>
   <data name="title" xml:space="preserve">
-    <value>События и люди</value>
+    <value>People&amp;Event</value>
   </data>
   <data name="trackDelete" xml:space="preserve">
-    <value>Удалить треки</value>
+    <value>Delete tracks</value>
   </data>
   <data name="trackName" xml:space="preserve">
-    <value>Название трека</value>
+    <value>Track name</value>
   </data>
   <data name="trackUrl" xml:space="preserve">
-    <value>Url трека</value>
+    <value>Track URL</value>
   </data>
   <data name="unSubscribe" xml:space="preserve">
-    <value>Отписаться</value>
+    <value>Unsubscribe</value>
   </data>
   <data name="uploadAvatar" xml:space="preserve">
-    <value>Загрузить аватар</value>
+    <value>Upload Avatar</value>
   </data>
   <data name="userAbout" xml:space="preserve">
-    <value>О пользователе</value>
+    <value>About User</value>
   </data>
   <data name="userEdit" xml:space="preserve">
-    <value>Редактировать профиль</value>
+    <value>Edit profile</value>
   </data>
   <data name="userEventsHistory" xml:space="preserve">
-    <value>История участия в событиях:</value>
+    <value>History events partaking</value>
   </data>
   <data name="userInterests" xml:space="preserve">
-    <value>Интересы пользователя</value>
+    <value>User interests</value>
   </data>
   <data name="users" xml:space="preserve">
-    <value>Пользователи</value>
+    <value>Users</value>
   </data>
   <data name="watchProfile" xml:space="preserve">
-    <value>Просмотр профиля</value>
+    <value>Watch Profile</value>
   </data>
 </root>
