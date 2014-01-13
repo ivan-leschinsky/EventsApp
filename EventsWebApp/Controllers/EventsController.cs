@@ -177,21 +177,16 @@ namespace EventsWebApp.Controllers
                 if (currentuser.Events.Contains(event_))
                 {
                     currentuser.Events.Remove(event_);
-                    userprofileRepository.Save();
                     event_.UserProfiles.Remove(currentuser);
-                    if (Request.IsAjaxRequest())
-                        return PartialView("_UnsubscribePartial", event_);
                 }
                 else
                 {
                     currentuser.Events.Add(event_);
                     userprofileRepository.Save();
                     event_.UserProfiles.Add(currentuser);
-                    if (Request.IsAjaxRequest())
-                        return PartialView("_SubscribePartial", event_);
                 }
 
-
+                userprofileRepository.Save();
                 if (ReturnPage.Equals("Show"))
                 {
                     return RedirectToAction("Show", new { id = id });
@@ -199,6 +194,9 @@ namespace EventsWebApp.Controllers
             }
             return RedirectToAction("Index");
         }
+
+
+
 
         protected override void Dispose(bool disposing)
         {

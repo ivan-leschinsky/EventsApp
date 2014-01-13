@@ -10,7 +10,9 @@ namespace EventsWebApp
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                        "~/Scripts/jquery-1.*"));
-
+            bundles.Add(new ScriptBundle("~/bundles/jqueryAjax").Include(
+                       "~/Scripts/jquery.unobtrusive*"));
+            
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
