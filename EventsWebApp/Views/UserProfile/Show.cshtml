@@ -1,7 +1,7 @@
 @model EventsWebApp.Models.UserProfile
 
 @{
-    ViewBag.Title = "Просмотр профиля";
+    ViewBag.Title = Resource.Resource.watchProfile;
 }
 
 <form class="form-horizontal">
@@ -10,7 +10,7 @@
 
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="UserAvatarUrl">Аватар</label>
+        <label class="col-md-4 control-label" for="UserAvatarUrl">@Resource.Resource.avatar</label>
         <div class="col-md-8">
 
             @if (!string.IsNullOrEmpty(Model.UserAvatarUrl))
@@ -25,13 +25,13 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-4 control-label" for="UserInfo">О пользователе:</label>
+        <label class="col-md-4 control-label" for="UserInfo">@Resource.Resource.userAbout</label>
         <div class="col-md-8">
             <p class="form-control-static">@Model.UserInfo</p>
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-4 control-label">Интересы пользователя:</label>
+        <label class="col-md-4 control-label">@Resource.Resource.userInterests</label>
 
         <label class="col-md-8">
             @if (ViewBag.Subjects[0] != "None")
@@ -46,7 +46,7 @@
         </label>
     </div>
     <div class="form-group">
-        <label class="col-md-4 control-label">История участия в событиях:</label>
+        <label class="col-md-4 control-label">@Resource.Resource.userEventsHistory</label>
 
         <label class="col-md-8">
             <h4>
@@ -73,7 +73,7 @@
     {
     <div class="form-group">
         <div class="col-md-8 col-md-offset-4">
-            <a class="btn btn-block btn-md btn-primary" href="@Url.Action("Edit")">Редактировать профиль</a>
+            <a class="btn btn-block btn-md btn-primary" href="@Url.Action("Edit")">@Resource.Resource.userEdit</a>
         </div>
     </div>
     }

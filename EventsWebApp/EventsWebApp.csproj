@@ -237,9 +237,9 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Resource.en.Designer.cs">
+      <DependentUpon>Resource.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Search\EventIndexDefinition.cs" />
     <Compile Include="Search\EventResultDefinition.cs" />
@@ -319,7 +319,6 @@
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\UserProfile\Edit.cshtml" />
     <Content Include="Views\UserProfile\Show.cshtml" />
-    <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutEmpty.cshtml" />
     <Content Include="Views\UserProfile\FirstSetup.cshtml" />
     <Content Include="Views\Events\Archived.cshtml" />
@@ -339,14 +338,14 @@
     <EmbeddedResource Include="Migrations\201401111943200_init.resx">
       <DependentUpon>201401111943200_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Resource.en.resx">
-      <CustomToolNamespace>Resource</CustomToolNamespace>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.en.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resource</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.en.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Resource</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>

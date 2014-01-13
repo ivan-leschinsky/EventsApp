@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - События и люди</title>
+    <title>@ViewBag.Title - @Resource.Resource.title</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     @Styles.Render("~/Content/css")
@@ -20,27 +20,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">События</a>
+                <a href="/" class="navbar-brand">@Resource.Resource.events</a>
             </div>
 
             <nav class="collapse navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Ближайшие", "Index", "Events")</li>
-                    <li>@Html.ActionLink("Архив", "Archived", "Events")</li>
-                    <li>@Html.ActionLink("Создать событие", "Create", "Events")</li>
+                    <li>@Html.ActionLink(Resource.Resource.nearest, "Index", "Events")</li>
+                    <li>@Html.ActionLink(Resource.Resource.archive, "Archived", "Events")</li>
+                    <li>@Html.ActionLink(Resource.Resource.eventCreate, "Create", "Events")</li>
                 </ul>
                 <ul class="nav navbar-right navbar-nav">
 
                     <li>
                         <form method="get" action="@Url.Action("Search", "Events")" class="form-inline">
-                                <input type="text" class="form-control pull-left" name="searchText" id="searchText" placeholder="Поиск" required="">
+                                <input type="text" class="form-control pull-left" name="searchText" id="searchText" placeholder="@Resource.Resource.search" required="">
                                 <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                         </form>
                     </li>
                     <li>
                         <form class="form-inline">
-                            <a href="@Url.Action("ChangeCulture", "Events", new { lang = "ru" })" class="btn btn-default">Ru</a>
-                            <a href="@Url.Action("ChangeCulture", "Events", new { lang = "en" })" class="btn btn-default">En</a>
+                            <a href="@Url.Action("ChangeCulture", "Events", new { lang = "ru" })" class="btn btn-default">EN</a>
+                            <a href="@Url.Action("ChangeCulture", "Events", new { lang = "en" })" class="btn btn-default">RU</a>
                         </form>
                     </li>
                     <li class="dropdown">
@@ -55,10 +55,10 @@
                             }
                             @user.UserTrueName<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Show", "UserProfile", new { id = user.UserId })">Просмотреть профиль</a></li>
-                            <li><a href="@Url.Action("Edit", "UserProfile")">Изменить профиль</a></li>
+                            <li><a href="@Url.Action("Show", "UserProfile", new { id = user.UserId })">@Resource.Resource.seeProfile</a></li>
+                            <li><a href="@Url.Action("Edit", "UserProfile")">@Resource.Resource.changeProfile</a></li>
                             <li class="divider"></li>
-                            <li><a href="@Url.Action("LogOff", "Account")">Выход</a></li>
+                            <li><a href="@Url.Action("LogOff", "Account")">@Resource.Resource.exit</a></li>
                         </ul>
                     </li>
 

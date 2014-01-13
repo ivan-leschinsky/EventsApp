@@ -61,7 +61,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Добавить.
+        ///   Ищет локализованную строку, похожую на Add.
         /// </summary>
         public static string add {
             get {
@@ -70,7 +70,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Добавить трек.
+        ///   Ищет локализованную строку, похожую на Add track.
         /// </summary>
         public static string addTrack {
             get {
@@ -79,7 +79,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Архив Событий.
+        ///   Ищет локализованную строку, похожую на Archiv events.
         /// </summary>
         public static string archieveEvents {
             get {
@@ -88,7 +88,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Вы уверены?.
+        ///   Ищет локализованную строку, похожую на Archiv.
+        /// </summary>
+        public static string archive {
+            get {
+                return ResourceManager.GetString("archive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Are you sure?.
         /// </summary>
         public static string areYouSure {
             get {
@@ -97,7 +106,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Изменить пароль.
+        ///   Ищет локализованную строку, похожую на Avatar.
+        /// </summary>
+        public static string avatar {
+            get {
+                return ResourceManager.GetString("avatar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Change password.
         /// </summary>
         public static string changePassword {
             get {
@@ -106,7 +124,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Изменение PlayList.
+        ///   Ищет локализованную строку, похожую на Changing personal Information.
+        /// </summary>
+        public static string changePersonalData {
+            get {
+                return ResourceManager.GetString("changePersonalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Changing playlist.
         /// </summary>
         public static string changePlaylist {
             get {
@@ -115,7 +142,25 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Изменение пароля.
+        ///   Ищет локализованную строку, похожую на Change profile.
+        /// </summary>
+        public static string changeProfile {
+            get {
+                return ResourceManager.GetString("changeProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Changing avatar.
+        /// </summary>
+        public static string changingAvatar {
+            get {
+                return ResourceManager.GetString("changingAvatar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Changing password.
         /// </summary>
         public static string changingPassword {
             get {
@@ -124,7 +169,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Выберите темы.
+        ///   Ищет локализованную строку, похожую на Choose tags.
         /// </summary>
         public static string chooseTags {
             get {
@@ -133,7 +178,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Подтвердите новый пароль.
+        ///   Ищет локализованную строку, похожую на Choose your interests.
+        /// </summary>
+        public static string chooseYourInterest {
+            get {
+                return ResourceManager.GetString("chooseYourInterest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Confirm new password.
         /// </summary>
         public static string confirnNewPassword {
             get {
@@ -142,7 +196,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Создать событие.
+        ///   Ищет локализованную строку, похожую на Create event.
         /// </summary>
         public static string createEvent {
             get {
@@ -151,7 +205,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Создание события.
+        ///   Ищет локализованную строку, похожую на Creating event.
         /// </summary>
         public static string creatingEvent {
             get {
@@ -160,7 +214,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Создатель.
+        ///   Ищет локализованную строку, похожую на Creator.
         /// </summary>
         public static string creator {
             get {
@@ -169,7 +223,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Текущий пароль.
+        ///   Ищет локализованную строку, похожую на Password.
         /// </summary>
         public static string currentPassword {
             get {
@@ -178,7 +232,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Удалить.
+        ///   Ищет локализованную строку, похожую на Delete.
         /// </summary>
         public static string delete {
             get {
@@ -187,7 +241,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Войти.
+        ///   Ищет локализованную строку, похожую на Edit.
+        /// </summary>
+        public static string edit {
+            get {
+                return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter.
         /// </summary>
         public static string enter {
             get {
@@ -196,7 +259,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Вход.
+        ///   Ищет локализованную строку, похожую на Enter.
         /// </summary>
         public static string entering {
             get {
@@ -205,7 +268,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Войдите.
+        ///   Ищет локализованную строку, похожую на Enter, please.
         /// </summary>
         public static string enterPlease {
             get {
@@ -214,7 +277,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Ошибка!.
+        ///   Ищет локализованную строку, похожую на Error!.
         /// </summary>
         public static string error {
             get {
@@ -223,7 +286,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Дата и время.
+        ///   Ищет локализованную строку, похожую на Create event.
+        /// </summary>
+        public static string eventCreate {
+            get {
+                return ResourceManager.GetString("eventCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Date.
         /// </summary>
         public static string eventDateTime {
             get {
@@ -232,7 +304,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Описание.
+        ///   Ищет локализованную строку, похожую на Description.
         /// </summary>
         public static string eventDescription {
             get {
@@ -241,7 +313,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Имя.
+        ///   Ищет локализованную строку, похожую на Name.
         /// </summary>
         public static string eventName {
             get {
@@ -250,7 +322,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Участники события.
+        ///   Ищет локализованную строку, похожую на Participant.
         /// </summary>
         public static string eventParticipants {
             get {
@@ -259,7 +331,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Просмотр события.
+        ///   Ищет локализованную строку, похожую на Events.
+        /// </summary>
+        public static string events {
+            get {
+                return ResourceManager.GetString("events", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Show event.
         /// </summary>
         public static string eventShow {
             get {
@@ -268,7 +349,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Поле должно быть датой.
+        ///   Ищет локализованную строку, похожую на Exit.
+        /// </summary>
+        public static string exit {
+            get {
+                return ResourceManager.GetString("exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Field should be date type.
         /// </summary>
         public static string fieldShouldBedate {
             get {
@@ -277,7 +367,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Логин.
+        ///   Ищет локализованную строку, похожую на Login.
         /// </summary>
         public static string login {
             get {
@@ -286,7 +376,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Самые активные участники.
+        ///   Ищет локализованную строку, похожую на The most active users.
         /// </summary>
         public static string mostActiveParticipant {
             get {
@@ -295,7 +385,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Ближайшие события.
+        ///   Ищет локализованную строку, похожую на Nearest.
+        /// </summary>
+        public static string nearest {
+            get {
+                return ResourceManager.GetString("nearest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Nearest events.
         /// </summary>
         public static string nearestEvents {
             get {
@@ -304,7 +403,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Новое событие.
+        ///   Ищет локализованную строку, похожую на New event.
         /// </summary>
         public static string newEvent {
             get {
@@ -313,7 +412,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Новый пароль.
+        ///   Ищет локализованную строку, похожую на New password.
         /// </summary>
         public static string newPassword {
             get {
@@ -322,7 +421,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Количесто Участников.
+        ///   Ищет локализованную строку, похожую на Number of participant.
         /// </summary>
         public static string numberParticipant {
             get {
@@ -331,7 +430,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Пароль.
+        ///   Ищет локализованную строку, похожую на Password.
         /// </summary>
         public static string password {
             get {
@@ -340,7 +439,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Плеер.
+        ///   Ищет локализованную строку, похожую на Player.
         /// </summary>
         public static string player {
             get {
@@ -349,7 +448,25 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Зарегистрироваться.
+        ///   Ищет локализованную строку, похожую на Edit profile.
+        /// </summary>
+        public static string profileEdit {
+            get {
+                return ResourceManager.GetString("profileEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Username.
+        /// </summary>
+        public static string profileName {
+            get {
+                return ResourceManager.GetString("profileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Register.
         /// </summary>
         public static string register {
             get {
@@ -358,7 +475,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Запомнить меня.
+        ///   Ищет локализованную строку, похожую на Remember me.
         /// </summary>
         public static string rememberMe {
             get {
@@ -367,7 +484,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Повторите пароль.
+        ///   Ищет локализованную строку, похожую на Repeat password.
         /// </summary>
         public static string repeatPassword {
             get {
@@ -376,7 +493,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Требуется заполнить поле времени события.
+        ///   Ищет локализованную строку, похожую на Required to fullfill field.
         /// </summary>
         public static string requireToFullfillFieldTimeEvent {
             get {
@@ -385,7 +502,25 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Поиск событий.
+        ///   Ищет локализованную строку, похожую на Save.
+        /// </summary>
+        public static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Search.
+        /// </summary>
+        public static string search {
+            get {
+                return ResourceManager.GetString("search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Search.
         /// </summary>
         public static string searchEvents {
             get {
@@ -394,7 +529,34 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Извините, ничего не найдено....
+        ///   Ищет локализованную строку, похожую на Watch Profile.
+        /// </summary>
+        public static string seeProfile {
+            get {
+                return ResourceManager.GetString("seeProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Something about youself.
+        /// </summary>
+        public static string shortlyAbout {
+            get {
+                return ResourceManager.GetString("shortlyAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Show.
+        /// </summary>
+        public static string show {
+            get {
+                return ResourceManager.GetString("show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Sorry, nothing found.
         /// </summary>
         public static string sorryNothingHasFound {
             get {
@@ -403,7 +565,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Подписаться.
+        ///   Ищет локализованную строку, похожую на Subscribe.
         /// </summary>
         public static string subscribe {
             get {
@@ -412,7 +574,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Темы.
+        ///   Ищет локализованную строку, похожую на Tags.
         /// </summary>
         public static string tags {
             get {
@@ -421,7 +583,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Время.
+        ///   Ищет локализованную строку, похожую на Time.
         /// </summary>
         public static string time {
             get {
@@ -430,7 +592,16 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Удалить треки.
+        ///   Ищет локализованную строку, похожую на People&amp;Event.
+        /// </summary>
+        public static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Delete tracks.
         /// </summary>
         public static string trackDelete {
             get {
@@ -439,7 +610,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Название трека.
+        ///   Ищет локализованную строку, похожую на Track name.
         /// </summary>
         public static string trackName {
             get {
@@ -448,7 +619,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Url трека.
+        ///   Ищет локализованную строку, похожую на Track URL.
         /// </summary>
         public static string trackUrl {
             get {
@@ -457,11 +628,74 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Отписаться.
+        ///   Ищет локализованную строку, похожую на Unsubscribe.
         /// </summary>
         public static string unSubscribe {
             get {
                 return ResourceManager.GetString("unSubscribe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Upload Avatar.
+        /// </summary>
+        public static string uploadAvatar {
+            get {
+                return ResourceManager.GetString("uploadAvatar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на About User.
+        /// </summary>
+        public static string userAbout {
+            get {
+                return ResourceManager.GetString("userAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit profile.
+        /// </summary>
+        public static string userEdit {
+            get {
+                return ResourceManager.GetString("userEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на History events partaking.
+        /// </summary>
+        public static string userEventsHistory {
+            get {
+                return ResourceManager.GetString("userEventsHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на User interests.
+        /// </summary>
+        public static string userInterests {
+            get {
+                return ResourceManager.GetString("userInterests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Users.
+        /// </summary>
+        public static string users {
+            get {
+                return ResourceManager.GetString("users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Watch Profile.
+        /// </summary>
+        public static string watchProfile {
+            get {
+                return ResourceManager.GetString("watchProfile", resourceCulture);
             }
         }
     }

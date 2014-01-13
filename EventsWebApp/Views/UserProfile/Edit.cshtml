@@ -1,7 +1,7 @@
 @model EventsWebApp.Models.UserProfile
 
 @{
-    ViewBag.Title = "Редактирование профиля";
+    ViewBag.Title = Resource.Resource.profileEdit;
 }
 <legend align="center">@ViewBag.Title</legend>
 <div class="col-md-8">
@@ -10,7 +10,7 @@
     <div class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Изменение личных данных</a>
+                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">@Resource.Resource.changePersonalData</a>
             </h3>
         </div>
     
@@ -23,14 +23,14 @@
         @Html.HiddenFor(model => model.UserName)
     
         <div class="form-group">
-            <label class="col-md-4 control-label">Логин</label>
+            <label class="col-md-4 control-label">@Resource.Resource.login</label>
             <div class="col-md-8">
                 <p class="form-control-static">@Model.UserName</p>
             </div>
         </div>             
         
         <div class="form-group">
-            <label class="col-md-4 control-label" for="UserTrueName">Имя пользователя</label>
+            <label class="col-md-4 control-label" for="UserTrueName">@Resource.Resource.profileName</label>
             <div class="col-md-8">
                 @Html.TextBoxFor(m => m.UserTrueName, new { @class = "form-control input-md" })
             </div>
@@ -38,14 +38,14 @@
     
    
         <div class="form-group">
-            <label class="col-md-4 control-label" for="UserInfo">Коротко о вас:</label>
+            <label class="col-md-4 control-label" for="UserInfo">@Resource.Resource.shortlyAbout</label>
             <div class="col-md-8">
                 @Html.TextAreaFor(m => m.UserInfo, new { @class = "form-control input-md", @rows = 3 })
             </div>
         </div>
     
         <div class="form-group">
-            <label class="col-md-4 control-label">Выберите ваши интересы:</label>
+            <label class="col-md-4 control-label">@Resource.Resource.chooseYourInterest</label>
 
             <label class="col-md-8">
                 @foreach (EventsWebApp.Models.Subject item in ViewBag.Subjects)
@@ -67,7 +67,7 @@
         </div>
                     </div>
                     <div class="panel-footer">
-        <button type="submit" class="btn btn-primary btn-md btn-block" value="Сохранить"><i class="glyphicon glyphicon-briefcase"></i>Сохранить</button>
+        <button type="submit" class="btn btn-primary btn-md btn-block" value="@Resource.Resource.save"><i class="glyphicon glyphicon-briefcase"></i>Сохранить</button>
                         </div>
                     
     }
@@ -77,7 +77,7 @@
     <div class="panel panel-danger">
         <div class="panel-heading">
             <h3 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Изменение пароля</a>
+                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">@Resource.Resource.changingPassword</a>
             </h3>
         </div>
         @using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
@@ -117,7 +117,7 @@
     <div class="panel panel-warning">
         <div class="panel-heading">
             <h3 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Изменение аватара</a>
+                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">@Resource.Resource.changingAvatar</a>
             </h3>
         </div>
         @using (Html.BeginForm("UploadPicture", "UserProfile", FormMethod.Post, new { @id = "uploadPicture", @enctype = "multipart/form-data" }))
@@ -127,7 +127,7 @@
                 <p id="errorPlace"></p>
             </div>
             <div class="panel-footer">
-                <button type="submit" class="btn btn-primary btn-md btn-block"><i class="glyphicon glyphicon glyphicon-open"></i>Загрузить аватар</button>
+                <button type="submit" class="btn btn-primary btn-md btn-block"><i class="glyphicon glyphicon glyphicon-open"></i>@Resource.Resource.uploadAvatar</button>
             </div>
         }
     </div>
